@@ -1,0 +1,19 @@
+{
+    "code": "linaListProjection",
+    "parentCode": "linaPresentation",
+    "extends": {
+        "presentationCode": "heroPresentation",
+        "projectionCode": "heroListProjection"
+    },
+    "actions": [
+        {
+            "code": "dragonFire"
+        },
+        {
+            "code": "fireStun"
+        },
+        {
+            "code": "lagunaBlade"
+        }
+    ]
+}

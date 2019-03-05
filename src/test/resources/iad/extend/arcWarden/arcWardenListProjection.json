@@ -1,0 +1,14 @@
+{
+    "parentCode":"arcWardenPresentation",
+    "code": "arcWardenListProjection",
+    "extends": {
+        "presentationCode": "heroPresentation",
+        "projectionCode": "heroListProjection"
+    },
+
+    "actions": [
+        {
+            "code": "sphere"
+        }
+    ]
+}

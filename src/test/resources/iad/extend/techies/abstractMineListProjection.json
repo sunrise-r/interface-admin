@@ -1,0 +1,9 @@
+{
+    "parentCode": "techiesPresentation",
+    "code": "abstractMineListProjection",
+    "actions": [
+        {
+            "code": "hide"
+        }
+    ]
+}

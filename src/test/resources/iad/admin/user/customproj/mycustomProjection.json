@@ -1,0 +1,5 @@
+{
+    "code": "userList",
+    "label": "List of users projections",
+    "parentCode": "defaultAdminPresentation"
+}

@@ -1,0 +1,12 @@
+{
+    "parentCode": "heroPresentation",
+    "code": "heroListProjection",
+    "actions": [
+        {
+            "code": "spawn"
+        },
+        {
+            "code": "move"
+        }
+    ]
+}

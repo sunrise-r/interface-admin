@@ -1,0 +1,13 @@
+{
+    "parentCode": "techiesPresentation",
+    "code": "landmineListProjection",
+    "extends": {
+        "presentationCode": "techiesPresentation",
+        "projectionCode": "abstractMineListProjection"
+    },
+    "actions": [
+        {
+            "code": "blowUp"
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+{
+    "parentCode": "techiesPresentation",
+    "code": "techiesListProjection",
+    "label": "Techies",
+    "extends": {
+        "presentationCode": "heroPresentation",
+        "projectionCode": "heroListProjection"
+    },
+    "actions": [
+        {
+            "code": "placeLandMine"
+        },
+        {
+            "code": "suicide"
+        }
+    ]
+}

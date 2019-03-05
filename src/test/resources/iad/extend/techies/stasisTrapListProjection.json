@@ -1,0 +1,16 @@
+{
+    "parentCode": "techiesPresentation",
+    "code": "stasisTrapListProjection",
+    "extends": {
+        "presentationCode": "techiesPresentation",
+        "projectionCode": "abstractMineListProjection"
+    },
+    "actions": [
+        {
+            "code": "root"
+        },
+        {
+            "code": "prepare"
+        }
+    ]
+}

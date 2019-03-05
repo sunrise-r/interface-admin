@@ -1,0 +1,5 @@
+{
+    "code": "defaultAdminPresentation",
+    "label": "Default interface presentation for admin user",
+    "parentCode":"adminRegistry"
+}
