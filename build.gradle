@@ -3,7 +3,7 @@ plugins {
     id 'org.springframework.boot' version '2.1.3.RELEASE'
 }
 
-group 'com.sunrise'
+group 'com.iadmin'
 version '0.0.1-SNAPSHOT'
 
 sourceCompatibility = 1.8
@@ -18,6 +18,10 @@ apply plugin: 'java-library'
 
 jar{
     enabled = true
+    manifest {
+        attributes('Implementation-Title': project.name,
+                'Implementation-Version': version)
+    }
 }
 
 dependencies {
