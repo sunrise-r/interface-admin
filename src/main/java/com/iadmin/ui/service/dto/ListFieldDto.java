@@ -22,6 +22,11 @@ public class ListFieldDto {
     private String formatter;
 
     /**
+     * Формат отображения данных
+     */
+    private String displayFormat;
+
+    /**
      * Показывать колонку?
      */
     private boolean visible;
@@ -46,7 +51,7 @@ public class ListFieldDto {
      */
     private String position;
 
-    private HashMap<String,String> properties;
+    private HashMap<String,Object> properties;
 
     public String getField() {
         return field;
@@ -112,11 +117,19 @@ public class ListFieldDto {
         this.position = position;
     }
 
-    public HashMap<String, String> getProperties() {
+    public HashMap<String, Object> getProperties() {
         return properties;
     }
 
-    public void setProperties(HashMap<String, String> properties) {
+    public void setProperties(HashMap<String, Object> properties) {
         this.properties = properties;
+    }
+
+    public String getDisplayFormat() {
+        return displayFormat;
+    }
+
+    public void setDisplayFormat(String displayFormat) {
+        this.displayFormat = displayFormat;
     }
 }

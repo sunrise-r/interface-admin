@@ -39,7 +39,7 @@ public class FormFieldDto {
 
     private String referenceProjectionCode;
 
-    private HashMap<String,String> properties;
+    private HashMap<String, Object> properties;
 
     private String inputMask;
 
@@ -59,11 +59,11 @@ public class FormFieldDto {
         this.inputMask = inputMask;
     }
 
-    public HashMap<String, String> getProperties() {
+    public HashMap<String, Object> getProperties() {
         return properties;
     }
 
-    public void setProperties(HashMap<String, String> properties) {
+    public void setProperties(HashMap<String, Object> properties) {
         this.properties = properties;
     }
 
@@ -155,7 +155,11 @@ public class FormFieldDto {
         this.column = column;
     }
 
-    public String getReferenceProjectionCode() { return referenceProjectionCode; }
+    public String getReferenceProjectionCode() {
+        return referenceProjectionCode;
+    }
 
-    public void setReferenceProjectionCode(String referenceProjectionCode) { this.referenceProjectionCode = referenceProjectionCode; }
+    public void setReferenceProjectionCode(String referenceProjectionCode) {
+        this.referenceProjectionCode = referenceProjectionCode;
+    }
 }

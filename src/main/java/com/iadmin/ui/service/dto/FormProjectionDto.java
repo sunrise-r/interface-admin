@@ -13,9 +13,9 @@ public class FormProjectionDto {
 
     private String code;
 
-    private HashMap<String,String> properties;
+    private HashMap<String,Object> properties;
 
-    public HashMap<String, String> getProperties() {
+    public HashMap<String, Object> getProperties() {
         return properties;
     }
 
@@ -51,7 +51,7 @@ public class FormProjectionDto {
         this.fields = fields;
     }
 
-    public void setProperties(HashMap<String, String> properties) {
+    public void setProperties(HashMap<String, Object> properties) {
         this.properties = properties;
     }
 }
