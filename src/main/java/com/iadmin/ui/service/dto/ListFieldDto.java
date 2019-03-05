@@ -47,6 +47,11 @@ public class ListFieldDto {
     private String style;
 
     /**
+     * Возможна ли сортировка?
+     */
+    private Boolean sorting;
+
+    /**
      * Определяет позицию колонки в таблице
      */
     private String position;
@@ -131,5 +136,13 @@ public class ListFieldDto {
 
     public void setDisplayFormat(String displayFormat) {
         this.displayFormat = displayFormat;
+    }
+
+    public Boolean getSorting() {
+        return sorting;
+    }
+
+    public void setSorting(Boolean sorting) {
+        this.sorting = sorting;
     }
 }
