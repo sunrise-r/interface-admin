@@ -12,6 +12,7 @@ import org.mapstruct.Named;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Mapper(componentModel = "spring", uses = {ListFieldMapper.class})
@@ -54,9 +55,14 @@ public interface PresentationMapper {
      */
     @Named("groupedActionDtos")
     default List<List<ActionDto>> actionsToGroupedActionDtos(List<Action> actions) {
-        if (actions == null) return Lists.newArrayList();
-        List<List<Action>> listListAction = new ArrayList<>(actions.stream().collect(Collectors.groupingBy(Action::getGroup)).values());
-        List<List<ActionDto>> result = listListAction.stream().map(this::actionsToActionDtos).collect(Collectors.toList());
+        List<List<ActionDto>> result = new ArrayList<>();
+        if (actions == null) return result;
+        Map<String, List<Action>> groupedActions = actions.stream()
+                .collect(Collectors.groupingBy(Action::getGroup, Collectors.toList()));
+        actions.stream()
+                .map(Action::getGroup)
+                .distinct()
+                .forEach(x -> result.add(actionsToActionDtos(groupedActions.get(x))));
         return result;
     }
 
