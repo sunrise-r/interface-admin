@@ -4,6 +4,8 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.iadmin.ui.model.Registry;
 import com.iadmin.ui.service.impl.DefaultResourceService;
+import com.iadmin.ui.service.impl.ReferenceServiceImpl;
+import com.iadmin.ui.service.reader.ReferenceService;
 import com.iadmin.ui.service.reader.base.UIReader;
 import org.junit.Assert;
 import org.junit.Test;
@@ -23,6 +25,7 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.*;
 
+
 @RunWith(MockitoJUnitRunner.class)
 public class DefaultResourceServiceTest {
 
@@ -37,8 +40,12 @@ public class DefaultResourceServiceTest {
 
     @Mock
     private ResourceRepository resourceRepository;
+
     @Mock
     private RegistryMergeService registryMergeService;
+
+    @Mock
+    private ReferenceService referenceService;
 
     @Captor
     private ArgumentCaptor<List<Registry>> registryListCaptor;
@@ -86,7 +93,6 @@ public class DefaultResourceServiceTest {
         Assert.assertEquals(2, result.size());
         Assert.assertEquals(registry, result.get(0));
         Assert.assertEquals(registry, result.get(1));
-
     }
 
     private List<Resource> createResources(int count) {
