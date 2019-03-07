@@ -55,21 +55,9 @@ public interface PresentationMapper {
     @Named("groupedActionDtos")
     default List<List<ActionDto>> actionsToGroupedActionDtos(List<Action> actions) {
         if (actions == null) return Lists.newArrayList();
-        List<String> order = new ArrayList<>();
-        actions.stream().filter(action -> order.size() == 0 || !action.getGroup().equals(order.get(order.size() - 1))).forEach(action -> order.add(action.getGroup()));
         List<List<Action>> listListAction = new ArrayList<>(actions.stream().collect(Collectors.groupingBy(Action::getGroup)).values());
-
-        boolean repeat;
-        do {
-            repeat = false;
-            for (int i = 0; i < order.size() - 1; i++)
-                if (!order.get(i).equals(listListAction.get(i).get(0).getGroup())) {
-                    Collections.swap(listListAction, i, i + 1);
-                    repeat = true;
-                }
-        } while (repeat);
-
-        return listListAction.stream().map(this::actionsToActionDtos).collect(Collectors.toList());
+        List<List<ActionDto>> result = listListAction.stream().map(this::actionsToActionDtos).collect(Collectors.toList());
+        return result;
     }
 
     @Named("generatePresentationCode")
