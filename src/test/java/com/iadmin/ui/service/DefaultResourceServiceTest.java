@@ -4,7 +4,6 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.iadmin.ui.model.Registry;
 import com.iadmin.ui.service.impl.DefaultResourceService;
-import com.iadmin.ui.service.impl.ReferenceServiceImpl;
 import com.iadmin.ui.service.reader.ReferenceService;
 import com.iadmin.ui.service.reader.base.UIReader;
 import org.junit.Assert;
@@ -87,7 +86,7 @@ public class DefaultResourceServiceTest {
         when(factory.createUIRegistriesReader()).thenReturn(registriesReader);
         when(resourceRepository.createRegistryReaderFactory(registryMergeService, resources1)).thenReturn(factory);
         when(resourceRepository.createRegistryReaderFactory(registryMergeService, resources2)).thenReturn(factory);
-        when(extendService.applyInheritance(anyList())).thenAnswer(f->f.getArguments()[0]);
+        when(extendService.applyInheritance(anyList())).thenAnswer(f -> f.getArguments()[0]);
         List<Registry> result = defaultResourceService.read(resources);
         verify(extendService, times(1)).applyInheritance(registryListCaptor.capture());
         Assert.assertEquals(2, result.size());

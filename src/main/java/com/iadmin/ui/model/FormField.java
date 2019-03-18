@@ -39,6 +39,13 @@ public class FormField extends BaseField {
 
     private ValidationDto validationTypes;
 
+    /**
+     * Источник данных для поля. Используется для заполнения поля данными при отрисовке формы.
+     * Бывает так что название поля на форме не совпадают по названию с источником данных. Это поле используется что бы
+     * решить эту проблемму. Если оно указанно, то движок должен попытаться получить данные по указанному пути.
+     */
+    private String datasourcePath;
+
     public String getValueField() {
         return valueField;
     }
@@ -160,4 +167,12 @@ public class FormField extends BaseField {
     public ValidationDto getValidationTypes() { return validationTypes; }
 
     public void setValidationTypes(ValidationDto validation) { this.validationTypes = validation; }
+
+    public String getDatasourcePath() {
+        return datasourcePath;
+    }
+
+    public void setDatasourcePath(String datasourcePath) {
+        this.datasourcePath = datasourcePath;
+    }
 }
