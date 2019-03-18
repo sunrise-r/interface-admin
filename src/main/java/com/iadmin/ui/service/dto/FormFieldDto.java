@@ -43,6 +43,8 @@ public class FormFieldDto {
 
     private String inputMask;
 
+    private String datasourcePath;
+
     public String getValueField() {
         return valueField;
     }
@@ -161,5 +163,13 @@ public class FormFieldDto {
 
     public void setReferenceProjectionCode(String referenceProjectionCode) {
         this.referenceProjectionCode = referenceProjectionCode;
+    }
+
+    public String getDatasourcePath() {
+        return datasourcePath;
+    }
+
+    public void setDatasourcePath(String datasourcePath) {
+        this.datasourcePath = datasourcePath;
     }
 }
