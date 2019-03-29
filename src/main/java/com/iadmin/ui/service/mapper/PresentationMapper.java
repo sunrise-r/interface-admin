@@ -1,7 +1,6 @@
 package com.iadmin.ui.service.mapper;
 
 
-import com.google.common.collect.Lists;
 import com.iadmin.ui.model.*;
 import com.iadmin.ui.service.dto.*;
 import org.atteo.evo.inflector.English;
@@ -10,7 +9,6 @@ import org.mapstruct.Mapping;
 import org.mapstruct.Named;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -18,7 +16,7 @@ import java.util.stream.Collectors;
 @Mapper(componentModel = "spring", uses = {ListFieldMapper.class})
 public interface PresentationMapper {
 
-    @Mapping(target = "projections", expression = "java(entity.getProjections().stream().sorted((x,y) -> x.getOrder() - y.getOrder()).map(this::toDto).collect(java.util.stream.Collectors.toList()))")
+    @Mapping(target = "projections", source = "projections", qualifiedByName = "projections")
     @Mapping(target = "label", source = "label")
     PresentationDto toDto(Presentation entity);
 
@@ -86,5 +84,18 @@ public interface PresentationMapper {
         }
         validation.setRequired(field.isRequired());
         return validation;
+    }
+
+    @Named("projections")
+    default List<ListProjectionDto> getAndSort(List<ListProjection> projections) {
+        return projections.stream().sorted((x, y) -> {
+            if (x.getOrder() == null) {
+                return -1;
+            }
+            if (y.getOrder() == null) {
+                return 1;
+            }
+            return x.getOrder() - y.getOrder();
+        }).map(this::toDto).collect(java.util.stream.Collectors.toList());
     }
 }

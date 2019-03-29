@@ -88,7 +88,9 @@ public class PresentationMapperTest {
         }
 
         listProjection1.setActions(actions1);
+        listProjection1.setOrder(1);
         listProjection2.setActions(actions2);
+        listProjection2.setOrder(2);
         listProjection1.setFields(listFields1);
         listProjection2.setFields(listFields2);
         listProjection1.setFilters(filters1);
