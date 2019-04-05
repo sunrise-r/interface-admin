@@ -41,6 +41,8 @@ public class FormField extends BaseField {
 
     private boolean translate;
 
+    private boolean visible;
+
     /**
      * Источник данных для поля. Используется для заполнения поля данными при отрисовке формы.
      * Бывает так что название поля на форме не совпадают по названию с источником данных. Это поле используется что бы
@@ -184,5 +186,13 @@ public class FormField extends BaseField {
 
     public void setTranslate(boolean translate) {
         this.translate = translate;
+    }
+
+    public boolean isVisible() {
+        return visible;
+    }
+
+    public void setVisible(boolean visible) {
+        this.visible = visible;
     }
 }

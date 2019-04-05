@@ -154,6 +154,7 @@ public class PresentationMapperTest {
         assertEquals(field.getFieldLength(), formFieldDto.getValidationTypes().getMaxLength());
         assertEquals(field.isRequired(), formFieldDto.getValidationTypes().isRequired());
         assertEquals(field.isTranslate(), formFieldDto.isTranslate());
+        assertEquals(field.isVisible(), formFieldDto.isVisible());
     }
 
     @Test

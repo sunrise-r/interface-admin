@@ -47,6 +47,8 @@ public class FormFieldDto {
 
     private boolean translate;
 
+    private boolean visible;
+
     public String getValueField() {
         return valueField;
     }
@@ -181,5 +183,13 @@ public class FormFieldDto {
 
     public void setTranslate(boolean translate) {
         this.translate = translate;
+    }
+
+    public boolean isVisible() {
+        return visible;
+    }
+
+    public void setVisible(boolean visible) {
+        this.visible = visible;
     }
 }
