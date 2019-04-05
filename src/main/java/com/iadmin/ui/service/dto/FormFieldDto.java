@@ -45,6 +45,8 @@ public class FormFieldDto {
 
     private String datasourcePath;
 
+    private boolean translate;
+
     public String getValueField() {
         return valueField;
     }
@@ -171,5 +173,13 @@ public class FormFieldDto {
 
     public void setDatasourcePath(String datasourcePath) {
         this.datasourcePath = datasourcePath;
+    }
+
+    public boolean isTranslate() {
+        return translate;
+    }
+
+    public void setTranslate(boolean translate) {
+        this.translate = translate;
     }
 }

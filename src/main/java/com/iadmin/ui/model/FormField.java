@@ -39,6 +39,8 @@ public class FormField extends BaseField {
 
     private ValidationDto validationTypes;
 
+    private boolean translate;
+
     /**
      * Источник данных для поля. Используется для заполнения поля данными при отрисовке формы.
      * Бывает так что название поля на форме не совпадают по названию с источником данных. Это поле используется что бы
@@ -174,5 +176,13 @@ public class FormField extends BaseField {
 
     public void setDatasourcePath(String datasourcePath) {
         this.datasourcePath = datasourcePath;
+    }
+
+    public boolean isTranslate() {
+        return translate;
+    }
+
+    public void setTranslate(boolean translate) {
+        this.translate = translate;
     }
 }

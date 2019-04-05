@@ -137,6 +137,7 @@ public class PresentationMapperTest {
         field.setFieldType("7");
         field.setLookupViewProjectionCode("8");
         field.setLookupSourceProjectionCode("9");
+        field.setTranslate(true);
 
         FormFieldDto formFieldDto = presentationMapper.toDto(field);
 
@@ -152,6 +153,7 @@ public class PresentationMapperTest {
         assertEquals(field.getProperties(), formFieldDto.getProperties());
         assertEquals(field.getFieldLength(), formFieldDto.getValidationTypes().getMaxLength());
         assertEquals(field.isRequired(), formFieldDto.getValidationTypes().isRequired());
+        assertEquals(field.isTranslate(), formFieldDto.isTranslate());
     }
 
     @Test
