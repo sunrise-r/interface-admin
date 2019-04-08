@@ -41,7 +41,7 @@ public class FormField extends BaseField {
 
     private boolean translate;
 
-    private boolean visible;
+    private boolean visible = true;
 
     /**
      * Источник данных для поля. Используется для заполнения поля данными при отрисовке формы.
