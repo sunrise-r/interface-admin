@@ -166,7 +166,7 @@ public class DefaultRegistryService implements RegistryService {
         for (int i = 0; i < count; i++) {
             validations.add("validationNumber_" + i);
         }
-        formField.setMaxLength("");
+        formField.setFieldLength("");
         formField.setRequired(false);
         formField.setCode("sampleFormFieldCode");
         formField.setDisplayFormat("sampleFormFieldDisplayFormat");
