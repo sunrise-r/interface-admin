@@ -7,17 +7,13 @@ import com.iadmin.ui.service.dto.ValidationDto;
  */
 public class FormField extends BaseField {
 
-    private String fieldType;
+    private String type;
 
     private String valueField;
 
-    private String fieldName;
-
-    private String fieldLabel;
-
     private boolean required;
 
-    private String fieldLength;
+    private String maxLength;
 
     private String defaultValue;
 
@@ -114,36 +110,20 @@ public class FormField extends BaseField {
         this.required = required;
     }
 
-    public String getFieldLength() {
-        return fieldLength;
+    public String getMaxLength() {
+        return maxLength;
     }
 
-    public void setFieldLength(String fieldLength) {
-        this.fieldLength = fieldLength;
+    public void setMaxLength(String maxLength) {
+        this.maxLength = maxLength;
     }
 
-    public String getFieldType() {
-        return fieldType;
+    public String getType() {
+        return type;
     }
 
-    public void setFieldType(String fieldType) {
-        this.fieldType = fieldType;
-    }
-
-    public String getFieldName() {
-        return fieldName;
-    }
-
-    public void setFieldName(String fieldName) {
-        this.fieldName = fieldName;
-    }
-
-    public String getFieldLabel() {
-        return fieldLabel;
-    }
-
-    public void setFieldLabel(String fieldLabel) {
-        this.fieldLabel = fieldLabel;
+    public void setType(String type) {
+        this.type = type;
     }
 
     public Integer getColumn() {

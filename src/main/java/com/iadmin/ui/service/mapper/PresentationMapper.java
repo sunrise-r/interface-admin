@@ -36,9 +36,7 @@ public interface PresentationMapper {
 
     FormProjectionDto toDto(FormProjection entity);
 
-    @Mapping(source = "fieldName", target = "name")
-    @Mapping(source = "fieldType", target = "type")
-    @Mapping(source = "fieldLabel", target = "label")
+    @Mapping(source = "code", target = "name")
     @Mapping(expression = "java(presentationCode(field))", target = "presentationCode")
     @Mapping(expression = "java(validationTypes(field))", target = "validationTypes")
     @Mapping(target = "column", expression = "java(field.getColumn() == null ? 0 : field.getColumn())")
@@ -69,9 +67,9 @@ public interface PresentationMapper {
         if (field.getPresentationCode() != null) {
             return field.getPresentationCode();
         }
-        String fieldType = field.getFieldType();
-        if (field.getFieldName().equals("additionalDocuments")) return "common";
-        return fieldType.equals("Entity") || fieldType.equals("List") ? English.plural(field.getFieldName()) : null;
+        String fieldType = field.getType();
+        if (field.getCode().equals("additionalDocuments")) return "common";
+        return fieldType.equals("Entity") || fieldType.equals("List") ? English.plural(field.getCode()) : null;
     }
 
     default ValidationDto validationTypes(FormField field) {
@@ -79,8 +77,8 @@ public interface PresentationMapper {
             return field.getValidationTypes();
         }
         ValidationDto validation = new ValidationDto();
-        if (!field.getFieldLength().equals("")) {
-            validation.setMaxLength(field.getFieldLength());
+        if (!field.getMaxLength().equals("")) {
+            validation.setMaxLength(field.getMaxLength());
         }
         validation.setRequired(field.isRequired());
         return validation;
