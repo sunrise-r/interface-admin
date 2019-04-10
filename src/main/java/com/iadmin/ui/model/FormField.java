@@ -13,6 +13,8 @@ public class FormField extends BaseField {
 
     private boolean required;
 
+    private String minLength;
+
     private String maxLength;
 
     private String defaultValue;
@@ -108,6 +110,14 @@ public class FormField extends BaseField {
 
     public void setRequired(boolean required) {
         this.required = required;
+    }
+
+    public String getMinLength() {
+        return minLength;
+    }
+
+    public void setMinLength(String minLength) {
+        this.minLength = minLength;
     }
 
     public String getMaxLength() {

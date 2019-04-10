@@ -128,15 +128,16 @@ public class PresentationMapperTest {
         fillBaseField(field);
         field.setRequired(true);
         field.setHidden(false);
-        field.setMaxLength("1");
-        field.setDefaultValue("2");
-        field.setFieldInputType("3");
-        field.setLabel("4");
-        field.setCode("5");
-        field.setPresentationCode("6");
-        field.setType("7");
-        field.setLookupViewProjectionCode("8");
-        field.setLookupSourceProjectionCode("9");
+        field.setMinLength("1");
+        field.setMaxLength("2");
+        field.setDefaultValue("3");
+        field.setFieldInputType("4");
+        field.setLabel("5");
+        field.setCode("6");
+        field.setPresentationCode("7");
+        field.setType("8");
+        field.setLookupViewProjectionCode("9");
+        field.setLookupSourceProjectionCode("10");
         field.setTranslate(true);
         field.setVisible(false);
 
@@ -152,6 +153,7 @@ public class PresentationMapperTest {
         assertEquals(field.getLookupViewProjectionCode(), formFieldDto.getLookupViewProjectionCode());
         assertEquals(field.getLookupSourceProjectionCode(), formFieldDto.getLookupSourceProjectionCode());
         assertEquals(field.getProperties(), formFieldDto.getProperties());
+        assertEquals(field.getMinLength(), formFieldDto.getValidationTypes().getMinLength());
         assertEquals(field.getMaxLength(), formFieldDto.getValidationTypes().getMaxLength());
         assertEquals(field.isRequired(), formFieldDto.getValidationTypes().isRequired());
         assertEquals(field.isTranslate(), formFieldDto.isTranslate());
