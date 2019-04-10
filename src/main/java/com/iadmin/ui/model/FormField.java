@@ -7,16 +7,30 @@ import com.iadmin.ui.service.dto.ValidationDto;
  */
 public class FormField extends BaseField {
 
+    private String type;
+
+    // #type is used instead
+    @Deprecated()
     private String fieldType;
 
     private String valueField;
 
+    // #code is used instead
+    @Deprecated
     private String fieldName;
 
+    // #label is used instead
+    @Deprecated
     private String fieldLabel;
 
     private boolean required;
 
+    private String minLength;
+
+    private String maxLength;
+
+    /// #minLength and #maxLength used instead
+    @Deprecated
     private String fieldLength;
 
     private String defaultValue;
@@ -49,6 +63,13 @@ public class FormField extends BaseField {
      * решить эту проблемму. Если оно указанно, то движок должен попытаться получить данные по указанному пути.
      */
     private String datasourcePath;
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 
     public String getValueField() {
         return valueField;
@@ -112,6 +133,22 @@ public class FormField extends BaseField {
 
     public void setRequired(boolean required) {
         this.required = required;
+    }
+
+    public String getMinLength() {
+        return minLength;
+    }
+
+    public void setMinLength(String minLength) {
+        this.minLength = minLength;
+    }
+
+    public String getMaxLength() {
+        return maxLength;
+    }
+
+    public void setMaxLength(String maxLength) {
+        this.maxLength = maxLength;
     }
 
     public String getFieldLength() {
