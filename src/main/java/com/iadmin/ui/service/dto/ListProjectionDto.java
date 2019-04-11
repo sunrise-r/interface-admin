@@ -1,5 +1,6 @@
 package com.iadmin.ui.service.dto;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class ListProjectionDto {
@@ -48,6 +49,11 @@ public class ListProjectionDto {
      * Список фильтров
      */
     private List<ProjectionFilterDto> filters;
+
+    /**
+     * Дополнительные настройки проекции
+     */
+    private HashMap<String,Object> properties;
 
     /**
      * Загружать ли актуальную информацию при клике на запись в таблице
@@ -132,5 +138,13 @@ public class ListProjectionDto {
 
     public void setLoadActualInfo(Boolean loadActualInfo) {
         this.loadActualInfo = loadActualInfo;
+    }
+
+    public HashMap<String, Object> getProperties() {
+        return properties;
+    }
+
+    public void setProperties(HashMap<String, Object> properties) {
+        this.properties = properties;
     }
 }
