@@ -79,7 +79,7 @@ public interface PresentationMapper {
             return field.getValidationTypes();
         }
         ValidationDto validation = new ValidationDto();
-        if (!field.getFieldLength().equals("")) {
+        if (field.getFieldLength() != null && !field.getFieldLength().equals("")) {
             validation.setMaxLength(field.getFieldLength());
         }
         validation.setRequired(field.isRequired());
