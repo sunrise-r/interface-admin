@@ -83,6 +83,7 @@ public interface PresentationMapper {
         if (field.getMaxLength() != null && !field.getMaxLength().isEmpty()) {
             validation.setMaxLength(field.getMaxLength());
         }
+        validation.setEmail(field.getDisplayFormat() != null && field.getDisplayFormat().equals("email"));
         validation.setRequired(field.isRequired());
         return validation;
     }
