@@ -2,10 +2,7 @@ package com.iadmin.ui.extend;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.iadmin.ui.exception.MergeException;
-import com.iadmin.ui.model.Action;
-import com.iadmin.ui.model.ListProjection;
-import com.iadmin.ui.model.Presentation;
-import com.iadmin.ui.model.Registry;
+import com.iadmin.ui.model.*;
 import com.iadmin.ui.service.impl.DefaultRegistryService;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,6 +15,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -67,6 +65,20 @@ public class ExtendingTest {
         Presentation presentation = getPresentationByCode("arcWardenPresentation");
         ListProjection projection = getListProjectionByCode(presentation, "arcWardenCopyListProjection");
         List<Action> actions = projection.getActions();
+        assertEquals(4, actions.size());
+        assertEquals("spawn", actions.get(0).getCode());
+        assertEquals("move", actions.get(1).getCode());
+        assertEquals("sphere", actions.get(2).getCode());
+        assertEquals("vanish", actions.get(3).getCode());
+    }
+
+    @Test
+    public void lastlistProjectionTest() throws IOException {
+        Presentation presentation = getPresentationByCode("arcWardenPresentation");
+        ListProjection projection = getListProjectionByCode(presentation, "lastProjection");
+        List<Action> actions = projection.getActions();
+        List<ListField> fields = projection.getFields();
+        assertEquals(3,fields.size());
         assertEquals(4, actions.size());
         assertEquals("spawn", actions.get(0).getCode());
         assertEquals("move", actions.get(1).getCode());
