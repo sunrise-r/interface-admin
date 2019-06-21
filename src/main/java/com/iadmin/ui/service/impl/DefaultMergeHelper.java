@@ -11,6 +11,7 @@ import org.springframework.util.ReflectionUtils;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class DefaultMergeHelper implements MergeHelper {
@@ -41,10 +42,11 @@ public class DefaultMergeHelper implements MergeHelper {
         }
         if (!obj1.equals(obj2)) {
             log.info("Mering not equals classes {} and {}", obj1, obj2);
-            if (List.class.isInstance(obj1) && List.class.isInstance(obj2)) {
+            if (obj1 instanceof List && obj2 instanceof List) {
                 ((ArrayList) resultObj).addAll((List) obj1);
                 ((ArrayList) resultObj).addAll((List) obj2);
-                return resultObj;
+                Object collect = ((ArrayList) resultObj).stream().distinct().collect(Collectors.toList());
+                return (K) collect;
             }
         }
         ReflectionUtils.doWithFields(obj1.getClass(), field -> {
@@ -59,12 +61,12 @@ public class DefaultMergeHelper implements MergeHelper {
                 } else if (val1 != null && val2 == null) {
                     result = val1;
                 } else if (val1 != null && val2 != null && !val1.equals(val2)) {
-                    if (List.class.isInstance(val1) && List.class.isInstance(val2)) {
+                    if (val1 instanceof List && val2 instanceof List) {
                         result = Lists.newArrayList();
                         ((ArrayList) result).addAll((List) val1);
                         ((ArrayList) result).addAll((List) val2);
                     }
-                    log.error("Merge type on not equals object not suppoerted yet {} on {} and {} while merging {} with values val1={} and val2={}", obj1, obj2, field.getName(), val1, val2);
+                    log.error("Merge type on not equals object not supported yet {} on {} and {} while merging {} with values val1={} and val2={}", obj1, obj2, field.getName(), val1, val2);
                 } else if (val1 != null && val2 != null && val1.equals(val2)) {
                     result = val1;
                 }

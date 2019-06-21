@@ -1,0 +1,14 @@
+{
+  "parentCode":"arcWardenPresentation",
+  "code": "lastProjection",
+  "extends": {
+    "presentationCode": "arcWardenPresentation",
+    "projectionCode": "arcWardenCopyListProjection"
+  },
+
+  "actions": [
+    {
+      "code": "vanish"
+    }
+  ]
+}

@@ -1,14 +1,31 @@
 {
-    "parentCode":"arcWardenPresentation",
-    "code": "arcWardenCopyListProjection",
-    "extends": {
-        "presentationCode": "arcWardenPresentation",
-        "projectionCode": "arcWardenListProjection"
+  "parentCode": "arcWardenPresentation",
+  "code": "arcWardenCopyListProjection",
+  "extends": {
+    "presentationCode": "arcWardenPresentation",
+    "projectionCode": "arcWardenListProjection"
+  },
+  "actions": [
+    {
+      "code": "vanish"
+    }
+  ],
+  "fields": [
+    {
+      "label": "Дата создания",
+      "code": "creationDate",
+      "translationCode": "code",
+      "sorting": true,
+      "searching": true,
+      "displayFormat": "ZonedDateTime"
     },
-
-    "actions": [
-        {
-            "code": "vanish"
-        }
-    ]
+    {
+      "label": "Вид",
+      "code": "documentClassLabel",
+      "translationCode": "code",
+      "sorting": true,
+      "searching": true,
+      "displayFormat": "String"
+    }
+  ]
 }

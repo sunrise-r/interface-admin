@@ -20,8 +20,8 @@ public class DefaultExtendService implements ExtendService {
     @Override
     public List<Registry> applyInheritance(List<Registry> registries) {
         return registries.stream()
-            .map(this::applyInheritance)
-            .collect(Collectors.toList());
+                .map(this::applyInheritance)
+                .collect(Collectors.toList());
     }
 
     @Override
@@ -29,8 +29,8 @@ public class DefaultExtendService implements ExtendService {
         List<ListProjection> projectionRoots = new ArrayList<>();
         List<ListProjection> projectionChild = new ArrayList<>();
         registry.getPresentations()
-            .stream()
-            .flatMap(p -> p.getProjections().stream())
+                .stream()
+                .flatMap(p -> p.getProjections().stream())
                 .forEach(listProjection -> {
                     if (listProjection.getParentReference() == null)
                         projectionRoots.add(listProjection);
@@ -43,15 +43,11 @@ public class DefaultExtendService implements ExtendService {
             for (int i = 0; i < projectionChild.size(); i++) {
                 ListProjection child = projectionChild.get(i);
 
-                ListProjection parent = projectionRoots.stream()
-                    .filter(root -> root.getParentCode().equals(child.getParentReference().getPresentationCode()))
-                    .filter(root -> root.getCode().equals(child.getParentReference().getProjectionCode()))
-                    .findFirst()
-                    .orElse(null);
+                ListProjection parent = getListProjection(projectionRoots, child);
                 if (parent == null)
                     continue;
 
-                applyInheritance(parent, child);
+                child = applyInheritance(parent, child);
                 projectionRoots.add(child);
                 projectionChild.remove(child);
                 i--;
@@ -67,16 +63,27 @@ public class DefaultExtendService implements ExtendService {
         return registry;
     }
 
-    private void applyInheritance(ListProjection parent, ListProjection child) {
-        applyInheritance(parent.getActions(), child.getActions());
-        applyInheritance(parent.getFields(), child.getFields());
+    private ListProjection getListProjection(List<ListProjection> projectionRoots, ListProjection child) {
+        return projectionRoots.stream()
+                            .filter(root -> root.getParentCode().equals(child.getParentReference().getPresentationCode()))
+                            .filter(root -> root.getCode().equals(child.getParentReference().getProjectionCode()))
+                            .findFirst()
+                            .orElse(null);
     }
 
-    private <T> void applyInheritance(List<T> parentList, List<T> childList) {
+    private ListProjection applyInheritance(ListProjection parent, ListProjection child) {
+        child.setActions(applyInheritance(parent.getActions(), child.getActions()));
+        child.setFields(applyInheritance(parent.getFields(), child.getFields()));
+        return child;
+    }
+
+    private <T> List<T> applyInheritance(List<T> parentList, List<T> childList) {
         Collections.reverse(parentList);
-        for (T t : parentList)
+        for (T t : parentList) {
             childList.add(0, t);
+        }
         Collections.reverse(parentList);
+        return childList.stream().distinct().collect(Collectors.toList());
     }
 
 }
