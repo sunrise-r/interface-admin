@@ -1,5 +1,6 @@
 package com.iadmin.ui.model;
 
+import com.google.common.base.Objects;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
@@ -25,5 +26,20 @@ public abstract class ChildData extends BaseData {
         return "ChildData{" +
             "parentCode='" + parentCode + '\'' +
             '}';
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        ChildData childData = (ChildData) o;
+        return Objects.equal(parentCode, childData.parentCode);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(super.hashCode(), parentCode);
     }
 }

@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.iadmin.ui.model.Registry;
 import com.iadmin.ui.service.impl.DefaultResourceService;
+import com.iadmin.ui.service.inheritance.ExtendService;
 import com.iadmin.ui.service.reader.ReferenceService;
 import com.iadmin.ui.service.reader.base.UIReader;
 import org.junit.Assert;
