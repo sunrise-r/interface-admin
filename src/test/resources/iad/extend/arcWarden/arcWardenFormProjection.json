@@ -1,0 +1,21 @@
+{
+  "code": "arcWardenFromProjection",
+  "parentCode": "arcWardenPresentation",
+  "className": "ArcWarden",
+  "title": "Title",
+  "extends": {
+    "presentationCode": "heroPresentation",
+    "projectionCode": "heroFormProjection"
+  },
+  "fields": [
+    {
+      "fieldType": "String",
+      "fieldName": "test",
+      "fieldLength": "",
+      "required": false,
+      "fieldLabel": "",
+      "hidden": false,
+      "defaultValue": null
+    }
+  ]
+}

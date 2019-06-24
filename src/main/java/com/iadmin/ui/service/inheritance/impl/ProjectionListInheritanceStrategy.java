@@ -8,7 +8,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ProejctionListInheritanceStrategy implements InheritanceStrategy {
+public class ProjectionListInheritanceStrategy implements InheritanceStrategy {
 
     @Override
     public void applyTo(BaseProjection child, BaseProjection parentProjection) {

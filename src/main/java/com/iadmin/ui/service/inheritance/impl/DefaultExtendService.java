@@ -25,9 +25,14 @@ public class DefaultExtendService implements ExtendService {
 
     @Override
     public Registry applyInheritance(Registry registry) {
+        logger.info("Start applying inheritance");
         List<BaseProjection> toApply = registry.getPresentations().stream().flatMap(p -> p.getProjections().stream()).collect(Collectors.toList());
-        InheritanceWorker listProjectionInheritanceWorker = new DefaultInheritanceWorker(toApply,new ProejctionListInheritanceStrategy());
-        listProjectionInheritanceWorker.applyInheritance();
+        InheritanceWorker projectionInheritanceWorker = new DefaultInheritanceWorker(toApply,new ProjectionListInheritanceStrategy());
+        projectionInheritanceWorker.applyInheritance();
+
+        toApply = registry.getPresentations().stream().flatMap(p->p.getFormProjections().stream()).collect(Collectors.toList());
+        projectionInheritanceWorker = new DefaultInheritanceWorker(toApply,new ProjectionFormInheritanceStrategy());
+        projectionInheritanceWorker.applyInheritance();
         return registry;
     }
 }

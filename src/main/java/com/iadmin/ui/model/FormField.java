@@ -1,5 +1,6 @@
 package com.iadmin.ui.model;
 
+import com.google.common.base.Objects;
 import com.iadmin.ui.service.dto.ValidationDto;
 
 /**
@@ -194,5 +195,19 @@ public class FormField extends BaseField {
 
     public void setVisible(boolean visible) {
         this.visible = visible;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        FormField formField = (FormField) o;
+        return Objects.equal(fieldName, formField.fieldName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(super.hashCode(), fieldName);
     }
 }
