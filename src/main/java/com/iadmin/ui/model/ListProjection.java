@@ -56,11 +56,7 @@ public class ListProjection extends BaseProjection {
      */
     private Boolean loadActualInfo;
 
-    /**
-     * Ссылка на родительскую проекцию
-     */
-    @JsonProperty("extends")
-    private ParentReference parentReference;
+
 
     public List<ProjectionFilter> getFilters() {
         return filters;
@@ -76,14 +72,6 @@ public class ListProjection extends BaseProjection {
 
     public void setOrder(Integer order) {
         this.order = order;
-    }
-
-    public ParentReference getParentReference() {
-        return parentReference;
-    }
-
-    public void setParentReference(ParentReference parentReference) {
-        this.parentReference = parentReference;
     }
 
     public String getSettingsGroupName() {

@@ -1,4 +1,4 @@
-package com.iadmin.ui.service;
+package com.iadmin.ui.service.inheritance;
 
 import com.iadmin.ui.model.Registry;
 

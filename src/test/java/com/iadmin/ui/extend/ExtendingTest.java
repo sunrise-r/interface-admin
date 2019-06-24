@@ -19,6 +19,7 @@ import java.lang.reflect.Field;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {ExtendingTest.Config.class})
@@ -73,7 +74,7 @@ public class ExtendingTest {
     }
 
     @Test
-    public void lastlistProjectionTest() throws IOException {
+    public void lastListProjectionTest() throws IOException {
         Presentation presentation = getPresentationByCode("arcWardenPresentation");
         ListProjection projection = getListProjectionByCode(presentation, "lastProjection");
         List<Action> actions = projection.getActions();
@@ -84,6 +85,23 @@ public class ExtendingTest {
         assertEquals("move", actions.get(1).getCode());
         assertEquals("sphere", actions.get(2).getCode());
         assertEquals("vanish", actions.get(3).getCode());
+    }
+
+    @Test
+    public void testFormInheritance() throws IOException {
+        Presentation presentation = getPresentationByCode("arcWardenPresentation");
+        FormProjection projection = getFormProjectionByCode(presentation, "arcWardenFromProjection");
+        List<FormField> fields = projection.getFields();
+        assertEquals(2,fields.size());
+
+    }
+
+    private FormProjection getFormProjectionByCode(Presentation presentation, String code) throws IOException {
+        return presentation.getFormProjections()
+                .stream()
+                .filter(registry -> registry.getCode().equals(code))
+                .findFirst()
+                .orElseThrow(IOException::new);
     }
 
 

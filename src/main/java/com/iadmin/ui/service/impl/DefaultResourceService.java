@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 import com.iadmin.ui.exception.MergeException;
 import com.iadmin.ui.model.Registry;
 import com.iadmin.ui.service.*;
+import com.iadmin.ui.service.inheritance.ExtendService;
 import com.iadmin.ui.service.reader.ReferenceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;

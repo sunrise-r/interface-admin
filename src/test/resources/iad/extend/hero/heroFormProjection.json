@@ -1,0 +1,17 @@
+{
+  "code": "heroFormProjection",
+  "parentCode": "heroPresentation",
+  "className": "Hero",
+  "title": "Title",
+  "fields": [
+    {
+      "fieldType": "Hidden",
+      "fieldName": "id",
+      "fieldLength": "",
+      "required": false,
+      "fieldLabel": "",
+      "hidden": false,
+      "defaultValue": null
+    }
+  ]
+}
