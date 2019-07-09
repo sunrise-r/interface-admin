@@ -14,13 +14,11 @@ import java.util.stream.Collectors;
 public class DefaultInheritanceWorker implements InheritanceWorker {
 
 
-    private Map<ParentReference, BaseProjection> references;
-
-    private Set<BaseProjection> toApply;
-
-    private Map<ParentReference, Integer> inheritanceLvlMap = Maps.newHashMap();
-
+    private static final int MAX_COUNT = 256;
     private final InheritanceStrategy inheritanceStrategy;
+    private Map<ParentReference, BaseProjection> references;
+    private Set<BaseProjection> toApply;
+    private Map<ParentReference, Integer> inheritanceLvlMap = Maps.newHashMap();
 
     public DefaultInheritanceWorker(List<BaseProjection> toApply, InheritanceStrategy inheritanceStrategy) {
         references = toApply.stream()
@@ -34,12 +32,16 @@ public class DefaultInheritanceWorker implements InheritanceWorker {
         applyRecursive();
     }
 
-    private Set<BaseProjection> applyRecursive() {
+    private Set<BaseProjection> applyRecursive(int deepCount) {
+
         toApply.stream().filter(p -> inheritanceLvlMap.containsKey(p.getParentReference()))
                 .forEach(p -> calcAndPutToInheritanceMap(p));
         toApply = toApply.stream().filter(ta -> !inheritanceLvlMap.keySet().contains(getProjectionReference(ta))).collect(Collectors.toSet());
+        if (deepCount > MAX_COUNT) {
+            throw new RuntimeException("circular inheritance for:" + toApply.stream().map(x -> x.getCode()).collect(Collectors.joining(",")));
+        }
         if (toApply.size() > 0) {
-            return applyRecursive();
+            return applyRecursive(deepCount++);
         }
         return toApply;
     }
