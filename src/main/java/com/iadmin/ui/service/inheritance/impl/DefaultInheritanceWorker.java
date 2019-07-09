@@ -29,7 +29,7 @@ public class DefaultInheritanceWorker implements InheritanceWorker {
 
     public void applyInheritance() {
         toApply.stream().filter(p -> p.getParentReference() == null).forEach(p -> inheritanceLvlMap.put(getProjectionReference(p), 0));
-        applyRecursive();
+        applyRecursive(0);
     }
 
     private Set<BaseProjection> applyRecursive(int deepCount) {
@@ -41,7 +41,7 @@ public class DefaultInheritanceWorker implements InheritanceWorker {
             throw new RuntimeException("circular inheritance for:" + toApply.stream().map(x -> x.getCode()).collect(Collectors.joining(",")));
         }
         if (toApply.size() > 0) {
-            return applyRecursive(deepCount++);
+            return applyRecursive(++deepCount);
         }
         return toApply;
     }
