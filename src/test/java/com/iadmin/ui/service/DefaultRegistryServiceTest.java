@@ -2,6 +2,7 @@ package com.iadmin.ui.service;
 
 import com.google.common.collect.Lists;
 import com.iadmin.ui.model.*;
+import com.iadmin.ui.service.dto.DefaultResourceReader;
 import com.iadmin.ui.service.impl.DefaultRegistryService;
 import com.iadmin.ui.service.impl.DefaultResourceService;
 import org.junit.Test;
@@ -22,8 +23,12 @@ public class DefaultRegistryServiceTest {
 
     @InjectMocks
     private DefaultRegistryService defaultRegistryService;
+
     @Mock
     private DefaultResourceService defaultResourceService;
+
+    @Mock
+    private DefaultResourceReader defaultResourceLoader;
 
     @Test
     public void loadUIRegistries() throws Exception {
@@ -34,7 +39,7 @@ public class DefaultRegistryServiceTest {
         String path = "path";
         List<String> scanPaths = Lists.newArrayList(path);
         when(defaultResourceService.read(resources)).thenReturn(expectedResult);
-        when(defaultResourceService.getResources(scanPaths)).thenReturn(resources);
+        when(defaultResourceLoader.getResources(scanPaths)).thenReturn(resources);
         when(defaultResourceService.getScanPath()).thenReturn(scanPaths);
         List<Registry> result = defaultRegistryService.loadRegistries();
         assertEquals(expectedResult, result);

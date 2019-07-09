@@ -24,8 +24,6 @@ public class DefaultResourceService implements ResourceService {
 
     private static final String DEFAULT_SCAN_PATH = "classpath:iad/**/*.json";
 
-    private final ResourcePatternResolver patternResolver;
-
     private final ResourceRepository resourceRepository;
 
     private final RegistryMergeService registryMergeService;
@@ -37,30 +35,12 @@ public class DefaultResourceService implements ResourceService {
     @Autowired
     public DefaultResourceService(ResourceRepository resourceRepository,
                                   RegistryMergeService registryMergeService,
-                                  ResourcePatternResolver patternResolver,
                                   ExtendService extendService,
                                   ReferenceService referenceService) {
         this.resourceRepository = resourceRepository;
         this.registryMergeService = registryMergeService;
-        this.patternResolver = patternResolver;
         this.extendService = extendService;
         this.referenceService = referenceService;
-    }
-
-    /**
-     * Найти все ресурсы которые описывают интерфейс
-     *
-     * @param scanPaths Пути сканирования ресурсов
-     * @return Список ресурсов доступных для формирования описания пользовательского интерфейса
-     * @throws IOException
-     */
-    @Override
-    public List<Resource> getResources(List<String> scanPaths) throws IOException {
-        List<Resource> resources = Lists.newArrayList();
-        for (String path : scanPaths) {
-            resources.addAll(Arrays.asList(patternResolver.getResources(path)));
-        }
-        return resources;
     }
 
     /**

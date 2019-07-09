@@ -16,13 +16,11 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.core.io.Resource;
-import org.springframework.core.io.support.ResourcePatternResolver;
 
 import java.util.List;
 import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.*;
 
 
@@ -30,13 +28,10 @@ import static org.mockito.Mockito.*;
 public class DefaultResourceServiceTest {
 
     @Mock
-    private ExtendService extendService;
-
-    @InjectMocks
-    private DefaultResourceService defaultResourceService;
+    ResourceReader resourceLoader;
 
     @Mock
-    private ResourcePatternResolver patternResolver;
+    private ExtendService extendService;
 
     @Mock
     private ResourceRepository resourceRepository;
@@ -47,20 +42,20 @@ public class DefaultResourceServiceTest {
     @Mock
     private ReferenceService referenceService;
 
+    @InjectMocks
+    private DefaultResourceService defaultResourceService;
+
     @Captor
     private ArgumentCaptor<List<Registry>> registryListCaptor;
 
-    @Test
-    public void getResources() throws Exception {
-        List<String> paths = Lists.newArrayList("path1", "path2");
-        Resource[] resource1 = createResources(10).toArray(new Resource[0]);
-        for (String s : paths) {
-            when(patternResolver.getResources(eq(s))).thenReturn(resource1);
+    public static List<Resource> createResources(int count) {
+
+        List<Resource> resources = Lists.newArrayListWithCapacity(count);
+        for (int i = 0; i < count; i++) {
+            Resource r = mock(Resource.class);
+            resources.add(r);
         }
-        List<Resource> result = defaultResourceService.getResources(paths);
-        assertEquals(20, result.size());
-        verify(patternResolver, atLeastOnce()).getResources(paths.get(0));
-        verify(patternResolver, atLeastOnce()).getResources(paths.get(1));
+        return resources;
     }
 
     @Test
@@ -93,16 +88,6 @@ public class DefaultResourceServiceTest {
         Assert.assertEquals(2, result.size());
         Assert.assertEquals(registry, result.get(0));
         Assert.assertEquals(registry, result.get(1));
-    }
-
-    private List<Resource> createResources(int count) {
-
-        List<Resource> resources = Lists.newArrayListWithCapacity(count);
-        for (int i = 0; i < count; i++) {
-            Resource r = mock(Resource.class);
-            resources.add(r);
-        }
-        return resources;
     }
 
 }
