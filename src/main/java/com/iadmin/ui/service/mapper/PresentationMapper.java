@@ -70,7 +70,7 @@ public interface PresentationMapper {
             return field.getPresentationCode();
         }
         String fieldType = field.getFieldType();
-        if (field.getFieldName().equals("additionalDocuments")) return "common";
+        if ("additionalDocuments".equals(field.getFieldName())) return "common";
         return  "Entity".equals(fieldType) || "List".equals(fieldType) ? English.plural(field.getFieldName()) : null;
     }
 
