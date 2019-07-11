@@ -71,7 +71,7 @@ public interface PresentationMapper {
         }
         String fieldType = field.getFieldType();
         if (field.getFieldName().equals("additionalDocuments")) return "common";
-        return fieldType.equals("Entity") || fieldType.equals("List") ? English.plural(field.getFieldName()) : null;
+        return  "Entity".equals(fieldType) || "List".equals(fieldType) ? English.plural(field.getFieldName()) : null;
     }
 
     default ValidationDto validationTypes(FormField field) {
