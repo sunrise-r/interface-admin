@@ -2,7 +2,7 @@ package com.iadmin.ui.service.dto;
 
 import java.util.HashMap;
 
-public class ListFieldDto {
+public class ListFieldDto extends PropertiesFieldDto {
 
     /**
      * Код поля
@@ -55,8 +55,6 @@ public class ListFieldDto {
      * Определяет позицию колонки в таблице
      */
     private String position;
-
-    private HashMap<String,Object> properties;
 
     public String getField() {
         return field;
@@ -120,14 +118,6 @@ public class ListFieldDto {
 
     public void setPosition(String position) {
         this.position = position;
-    }
-
-    public HashMap<String, Object> getProperties() {
-        return properties;
-    }
-
-    public void setProperties(HashMap<String, Object> properties) {
-        this.properties = properties;
     }
 
     public String getDisplayFormat() {

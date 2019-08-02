@@ -1,6 +1,6 @@
 package com.iadmin.ui.service.dto;
 
-public class DataFieldDto {
+public class DataFieldDto extends PropertiesFieldDto {
 
     private String label;
 
@@ -27,8 +27,12 @@ public class DataFieldDto {
         this.code = code;
     }
 
-    public String getFormatter() { return formatter; }
+    public String getFormatter() {
+        return formatter;
+    }
 
-    public void setFormatter(String formatter) { this.formatter = formatter; }
+    public void setFormatter(String formatter) {
+        this.formatter = formatter;
+    }
 
 }
