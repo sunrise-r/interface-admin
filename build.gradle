@@ -21,6 +21,8 @@ jar{
 }
 
 dependencies {
+    // https://mvnrepository.com/artifact/org.eclipse.jgit/org.eclipse.jgit
+    compile group: 'org.eclipse.jgit', name: 'org.eclipse.jgit', version: '5.4.0.201906121030-r'
     compile "com.fasterxml.jackson.datatype:jackson-datatype-json-org"
     compile group: 'com.google.collections', name: 'google-collections', version: '1.0'
     // https://mvnrepository.com/artifact/org.springframework/spring-core
