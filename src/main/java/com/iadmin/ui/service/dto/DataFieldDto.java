@@ -7,9 +7,14 @@ public class DataFieldDto extends PropertiesFieldDto {
     private String code;
 
     /**
-     * Формат отображения данных
+     * Компонент отображения данных
      */
     private String formatter;
+
+    /**
+     * Формат отображения данных
+     */
+    private String displayFormat;
 
     public String getLabel() {
         return label;
@@ -35,4 +40,11 @@ public class DataFieldDto extends PropertiesFieldDto {
         this.formatter = formatter;
     }
 
+    public String getDisplayFormat() {
+        return displayFormat;
+    }
+
+    public void setDisplayFormat(String displayFormat) {
+        this.displayFormat = displayFormat;
+    }
 }
