@@ -3,7 +3,12 @@ package com.iadmin.ui.model;
 public class BaseField extends ChildData {
 
     /**
-     * Формат отображения поля
+     * Компонент отображения данных
+     */
+    private String formatter;
+
+    /**
+     * Формат отображения поля в компоненте
      */
     private String displayFormat;
 
@@ -13,5 +18,13 @@ public class BaseField extends ChildData {
 
     public void setDisplayFormat(String displayFormat) {
         this.displayFormat = displayFormat;
+    }
+
+    public String getFormatter() {
+        return formatter;
+    }
+
+    public void setFormatter(String formatter) {
+        this.formatter = formatter;
     }
 }
