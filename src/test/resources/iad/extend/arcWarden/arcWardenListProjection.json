@@ -1,11 +1,11 @@
 {
     "parentCode":"arcWardenPresentation",
     "code": "arcWardenListProjection",
+    "infoUrl": "api/heroes/arcWarden/info",
     "extends": {
         "presentationCode": "heroPresentation",
         "projectionCode": "heroListProjection"
     },
-
     "actions": [
         {
             "code": "sphere"

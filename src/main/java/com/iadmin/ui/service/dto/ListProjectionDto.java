@@ -21,6 +21,11 @@ public class ListProjectionDto {
     private String searchUrl;
 
     /**
+     * Url to retrieve information for particular record in list
+     */
+    private String infoUrl;
+
+    /**
      * Доступные для представления действия
      */
     private List<List<ActionDto>> actions;
@@ -146,5 +151,13 @@ public class ListProjectionDto {
 
     public void setProperties(HashMap<String, Object> properties) {
         this.properties = properties;
+    }
+
+    public String getInfoUrl() {
+        return infoUrl;
+    }
+
+    public void setInfoUrl(String infoUrl) {
+        this.infoUrl = infoUrl;
     }
 }

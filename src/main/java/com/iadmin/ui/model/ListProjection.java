@@ -17,6 +17,11 @@ public class ListProjection extends BaseProjection {
     private String searchUrl;
 
     /**
+     * Url to retrieve information for particular record in list
+     */
+    private String infoUrl;
+
+    /**
      * Порядок сортировки
      */
     private Integer order;
@@ -128,5 +133,13 @@ public class ListProjection extends BaseProjection {
 
     public void setLoadActualInfo(Boolean loadActualInfo) {
         this.loadActualInfo = loadActualInfo;
+    }
+
+    public String getInfoUrl() {
+        return infoUrl;
+    }
+
+    public void setInfoUrl(String infoUrl) {
+        this.infoUrl = infoUrl;
     }
 }

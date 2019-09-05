@@ -1,6 +1,7 @@
 {
   "parentCode": "heroPresentation",
   "code": "heroListProjection",
+  "infoUrl": "api/heroes/info",
   "actions": [
     {
       "code": "spawn"
