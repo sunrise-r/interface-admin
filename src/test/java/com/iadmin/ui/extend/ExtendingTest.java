@@ -54,6 +54,7 @@ public class ExtendingTest {
         ListProjection projection = getListProjectionByCode(presentation, "linaListProjection");
         List<Action> actions = projection.getActions();
         assertEquals(5, actions.size());
+        assertEquals("api/heroes/info", projection.getInfoUrl());
         assertEquals("spawn", actions.get(0).getCode());
         assertEquals("move", actions.get(1).getCode());
         assertEquals("dragonFire", actions.get(2).getCode());
@@ -67,6 +68,7 @@ public class ExtendingTest {
         ListProjection projection = getListProjectionByCode(presentation, "arcWardenCopyListProjection");
         List<Action> actions = projection.getActions();
         assertEquals(4, actions.size());
+        assertEquals("api/heroes/arcWarden/info", projection.getInfoUrl());
         assertEquals("spawn", actions.get(0).getCode());
         assertEquals("move", actions.get(1).getCode());
         assertEquals("sphere", actions.get(2).getCode());

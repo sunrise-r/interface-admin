@@ -16,6 +16,9 @@ public class ProjectionListInheritanceStrategy implements InheritanceStrategy {
         ListProjection parentListProjection = (ListProjection) parentProjection;
         childListProjection.setActions(applyInheritance(parentListProjection.getActions(), childListProjection.getActions()));
         childListProjection.setFields(applyInheritance(parentListProjection.getFields(), childListProjection.getFields()));
+        if (childListProjection.getInfoUrl() == null) {
+            childListProjection.setInfoUrl(parentListProjection.getInfoUrl());
+        }
     }
 
     private <T> List<T> applyInheritance(List<T> parentList, List<T> childList) {
