@@ -2,35 +2,8 @@ package com.iadmin.ui.service.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
-import java.util.HashMap;
-
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class FormFieldDto extends PropertiesFieldDto {
-
-    /**
-     * Типы валидации которые дожны быть применены для поля при редактирование
-     */
-    private ValidationDto validationTypes;
-
-    /**
-     * Указатель на поле из sourceListProjection, которое должно быть подставлено в форму
-     */
-    private String valueField;
-
-    private String presentationCode;
-
-    private String type;
-
-    private String name;
-
-    private String label;
-
-    private String defaultValue;
-
-    /**
-     * Тип поля: Text, String, ZonedDateTime etc.
-     */
-    private String fieldInputType;
+public class FormFieldDto extends DataFieldDto {
 
     /**
      * Form fields may be allocated in different <td></td> or <div class="col-{{colums.length / n}}"></div> columns
@@ -38,9 +11,19 @@ public class FormFieldDto extends PropertiesFieldDto {
     private Integer column;
 
     /**
+     * Тип поля: Text, String, ZonedDateTime etc.
+     */
+    private String fieldInputType;
+
+    /**
      * Make no sense. Marked as hidden input should be hidden. But we use fieldInputType: Hidden on frontend side
      */
     private boolean hidden;
+
+    /**
+     * Add Input mask for String inputs
+     */
+    private String inputMask;
 
     /**
      * Closely related to "partner" project. "View" part of grid-like lookups
@@ -52,20 +35,26 @@ public class FormFieldDto extends PropertiesFieldDto {
      */
     private String lookupSourceProjectionCode;
 
+    private String name;
+
+    private String presentationCode;
+
     /**
      * Allows frontend to include external form projections as nested form group or as additional fields kit for current form
      */
     private String referenceProjectionCode;
 
-    /**
-     * Add Input mask for String inputs
-     */
-    private String inputMask;
+    private String type;
 
     /**
-     * Dot separated path to any data source, that will be passed to form on frontend side
+     * Типы валидации которые дожны быть применены для поля при редактирование
      */
-    private String datasourcePath;
+    private ValidationDto validationTypes;
+
+    /**
+     * Указатель на поле из sourceListProjection, которое должно быть подставлено в форму
+     */
+    private String valueField;
 
     /**
      * Flag to configure if the label of current form field should be translated
@@ -77,16 +66,6 @@ public class FormFieldDto extends PropertiesFieldDto {
      * Isn't it the same as opposite for hidden flag?  (hidden = false)
      */
     private boolean visible;
-
-    /**
-     * Компонент отображения данных
-     */
-    private String formatter;
-
-    /**
-     * Формат отображения данных
-     */
-    private String displayFormat;
 
     public String getValueField() {
         return valueField;
@@ -136,14 +115,6 @@ public class FormFieldDto extends PropertiesFieldDto {
         this.presentationCode = presentationCode;
     }
 
-    public String getDefaultValue() {
-        return defaultValue;
-    }
-
-    public void setDefaultValue(String defaultValue) {
-        this.defaultValue = defaultValue;
-    }
-
     public String getFieldInputType() {
         return fieldInputType;
     }
@@ -166,14 +137,6 @@ public class FormFieldDto extends PropertiesFieldDto {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getLabel() {
-        return label;
-    }
-
-    public void setLabel(String label) {
-        this.label = label;
     }
 
     public ValidationDto getValidationTypes() {
@@ -200,14 +163,6 @@ public class FormFieldDto extends PropertiesFieldDto {
         this.referenceProjectionCode = referenceProjectionCode;
     }
 
-    public String getDatasourcePath() {
-        return datasourcePath;
-    }
-
-    public void setDatasourcePath(String datasourcePath) {
-        this.datasourcePath = datasourcePath;
-    }
-
     public boolean isTranslate() {
         return translate;
     }
@@ -222,21 +177,5 @@ public class FormFieldDto extends PropertiesFieldDto {
 
     public void setVisible(boolean visible) {
         this.visible = visible;
-    }
-
-    public String getFormatter() {
-        return formatter;
-    }
-
-    public void setFormatter(String formatter) {
-        this.formatter = formatter;
-    }
-
-    public String getDisplayFormat() {
-        return displayFormat;
-    }
-
-    public void setDisplayFormat(String displayFormat) {
-        this.displayFormat = displayFormat;
     }
 }

@@ -6,7 +6,7 @@ import com.iadmin.ui.service.dto.ValidationDto;
 /**
  * Описание поля, используется для построения формы редактирования.
  */
-public class FormField extends BaseField {
+public class FormField extends DataField {
 
     private String fieldType;
 
@@ -19,8 +19,6 @@ public class FormField extends BaseField {
     private boolean required;
 
     private String fieldLength;
-
-    private String defaultValue;
 
     private String fieldInputType;
 
@@ -43,13 +41,6 @@ public class FormField extends BaseField {
     private boolean translate;
 
     private boolean visible = true;
-
-    /**
-     * Источник данных для поля. Используется для заполнения поля данными при отрисовке формы.
-     * Бывает так что название поля на форме не совпадают по названию с источником данных. Это поле используется что бы
-     * решить эту проблемму. Если оно указанно, то движок должен попытаться получить данные по указанному пути.
-     */
-    private String datasourcePath;
 
     public String getValueField() {
         return valueField;
@@ -89,14 +80,6 @@ public class FormField extends BaseField {
 
     public void setHidden(boolean hidden) {
         this.hidden = hidden;
-    }
-
-    public String getDefaultValue() {
-        return defaultValue;
-    }
-
-    public void setDefaultValue(String defaultValue) {
-        this.defaultValue = defaultValue;
     }
 
     public String getFieldInputType() {
@@ -172,14 +155,6 @@ public class FormField extends BaseField {
     public ValidationDto getValidationTypes() { return validationTypes; }
 
     public void setValidationTypes(ValidationDto validation) { this.validationTypes = validation; }
-
-    public String getDatasourcePath() {
-        return datasourcePath;
-    }
-
-    public void setDatasourcePath(String datasourcePath) {
-        this.datasourcePath = datasourcePath;
-    }
 
     public boolean isTranslate() {
         return translate;

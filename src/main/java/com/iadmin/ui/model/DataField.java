@@ -8,11 +8,24 @@ public class DataField extends BaseField {
      */
     private String datasourcePath;
 
+    /**
+     * Default value for the field. This property may become very helpful when you have no value within your data
+     */
+    private String defaultValue;
+
     public String getDatasourcePath() {
         return datasourcePath;
     }
 
     public void setDatasourcePath(String datasourcePath) {
         this.datasourcePath = datasourcePath;
+    }
+
+    public String getDefaultValue() {
+        return defaultValue;
+    }
+
+    public void setDefaultValue(String defaultValue) {
+        this.defaultValue = defaultValue;
     }
 }

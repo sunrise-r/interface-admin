@@ -2,8 +2,6 @@ package com.iadmin.ui.service.dto;
 
 public class DataFieldDto extends PropertiesFieldDto {
 
-    private String label;
-
     private String code;
 
     /**
@@ -12,14 +10,18 @@ public class DataFieldDto extends PropertiesFieldDto {
     private String formatter;
 
     /**
+     * Dot separated path to any data source, that will be passed to form on frontend side
+     */
+    private String datasourcePath;
+
+    private String defaultValue;
+
+    /**
      * Формат отображения данных
      */
     private String displayFormat;
 
-    /**
-     * Dot separated path to any data source, that will be passed to form on frontend side
-     */
-    private String datasourcePath;
+    private String label;
 
     public String getLabel() {
         return label;
@@ -59,5 +61,13 @@ public class DataFieldDto extends PropertiesFieldDto {
 
     public void setDatasourcePath(String datasourcePath) {
         this.datasourcePath = datasourcePath;
+    }
+
+    public String getDefaultValue() {
+        return defaultValue;
+    }
+
+    public void setDefaultValue(String defaultValue) {
+        this.defaultValue = defaultValue;
     }
 }
