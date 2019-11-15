@@ -2,6 +2,8 @@ package com.iadmin.ui.service.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import java.io.Serializable;
+
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 public class ValidationDto implements Serializable {
 
