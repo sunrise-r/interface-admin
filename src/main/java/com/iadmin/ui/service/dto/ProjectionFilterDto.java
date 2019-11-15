@@ -1,11 +1,12 @@
 package com.iadmin.ui.service.dto;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Фильтры для проекций
  */
-public class ProjectionFilterDto implements Serializable{
+public class ProjectionFilterDto implements Serializable {
 
     /**
      * Название фильтра

@@ -1,5 +1,6 @@
 package com.iadmin.ui.service.dto;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 

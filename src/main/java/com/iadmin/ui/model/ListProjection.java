@@ -1,8 +1,6 @@
 package com.iadmin.ui.model;
 
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.util.List;
 
 /**

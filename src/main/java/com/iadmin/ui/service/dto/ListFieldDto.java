@@ -1,6 +1,6 @@
 package com.iadmin.ui.service.dto;
 
-import java.util.HashMap;
+import java.io.Serializable;
 
 public class ListFieldDto extends PropertiesFieldDto implements Serializable {
 

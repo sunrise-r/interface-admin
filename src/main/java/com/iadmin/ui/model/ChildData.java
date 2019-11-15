@@ -1,7 +1,6 @@
 package com.iadmin.ui.model;
 
 import com.google.common.base.Objects;
-import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
  * Базовый абстрактный класс для сущностей у которых есть родительский объект

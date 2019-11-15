@@ -6,7 +6,6 @@ import com.iadmin.ui.service.ReaderServiceData;
 import com.iadmin.ui.service.RegistryAccessor;
 import com.iadmin.ui.service.RegistryMergeService;
 import com.iadmin.ui.service.RegistryReaderFactory;
-import com.iadmin.ui.service.reader.BaseReaderTest;
 import com.iadmin.ui.service.reader.base.UIReader;
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -3,8 +3,6 @@ package com.iadmin.ui.service.reader.projection;
 import com.iadmin.ui.exception.MergeException;
 import com.iadmin.ui.model.DataField;
 import com.iadmin.ui.model.DataProjection;
-import com.iadmin.ui.model.FormField;
-import com.iadmin.ui.model.FormProjection;
 import com.iadmin.ui.service.ReaderServiceData;
 import com.iadmin.ui.service.reader.base.ListReader;
 import com.iadmin.ui.service.reader.base.SingleReader;

@@ -7,11 +7,12 @@ import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 
 @Service
-public class DefaultResourceReader implements ResourceReader, Serializable{
+public class DefaultResourceReader implements ResourceReader, Serializable {
 
     private final ResourcePatternResolver patternResolver;
 

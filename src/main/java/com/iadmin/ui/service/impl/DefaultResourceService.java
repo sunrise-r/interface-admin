@@ -3,16 +3,17 @@ package com.iadmin.ui.service.impl;
 import com.google.common.collect.Lists;
 import com.iadmin.ui.exception.MergeException;
 import com.iadmin.ui.model.Registry;
-import com.iadmin.ui.service.*;
+import com.iadmin.ui.service.RegistryMergeService;
+import com.iadmin.ui.service.RegistryReaderFactory;
+import com.iadmin.ui.service.ResourceRepository;
+import com.iadmin.ui.service.ResourceService;
 import com.iadmin.ui.service.inheritance.ExtendService;
 import com.iadmin.ui.service.reader.ReferenceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
-import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 

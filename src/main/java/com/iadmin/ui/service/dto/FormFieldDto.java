@@ -2,6 +2,8 @@ package com.iadmin.ui.service.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import java.io.Serializable;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class FormFieldDto extends DataFieldDto implements Serializable {
 
