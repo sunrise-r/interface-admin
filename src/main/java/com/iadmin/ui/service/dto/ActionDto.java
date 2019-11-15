@@ -1,6 +1,6 @@
 package com.iadmin.ui.service.dto;
 
-public class ActionDto {
+public class ActionDto implements Serializable{
 
     /**
      * Код

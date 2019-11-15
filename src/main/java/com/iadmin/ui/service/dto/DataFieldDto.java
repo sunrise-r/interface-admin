@@ -1,6 +1,6 @@
 package com.iadmin.ui.service.dto;
 
-public class DataFieldDto extends PropertiesFieldDto {
+public class DataFieldDto extends PropertiesFieldDto implements Serializable {
 
     private String code;
 

@@ -3,7 +3,7 @@ package com.iadmin.ui.service.dto;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class FormFieldDto extends DataFieldDto {
+public class FormFieldDto extends DataFieldDto implements Serializable {
 
     /**
      * Form fields may be allocated in different <td></td> or <div class="col-{{colums.length / n}}"></div> columns

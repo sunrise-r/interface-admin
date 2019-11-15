@@ -2,7 +2,7 @@ package com.iadmin.ui.service.dto;
 
 import java.util.HashMap;
 
-public class ListFieldDto extends PropertiesFieldDto {
+public class ListFieldDto extends PropertiesFieldDto implements Serializable {
 
     /**
      * Код поля

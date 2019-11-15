@@ -1,4 +1,4 @@
 package com.iadmin.ui.service.dto;
 
-public class RegistrySettingsDto {
+public class RegistrySettingsDto implements Serializable{
 }

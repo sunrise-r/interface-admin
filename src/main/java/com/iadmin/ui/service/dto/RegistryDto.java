@@ -2,7 +2,7 @@ package com.iadmin.ui.service.dto;
 
 import java.util.List;
 
-public class RegistryDto {
+public class RegistryDto implements Serializable {
 
     private RegistrySettingsDto settingsDto;
 

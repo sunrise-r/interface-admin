@@ -3,7 +3,7 @@ package com.iadmin.ui.service.dto;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
-public class ValidationDto {
+public class ValidationDto implements Serializable {
 
     private String max;
 

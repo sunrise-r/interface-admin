@@ -3,7 +3,7 @@ package com.iadmin.ui.service.dto;
 import java.util.HashMap;
 import java.util.List;
 
-public class FormProjectionDto {
+public class FormProjectionDto implements Serializable {
 
     private List<FormFieldDto> fields;
 

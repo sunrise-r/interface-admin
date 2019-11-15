@@ -3,7 +3,7 @@ package com.iadmin.ui.service.dto;
 import java.util.HashMap;
 import java.util.List;
 
-public class ListProjectionDto {
+public class ListProjectionDto implements Serializable {
 
     /**
      * Код

@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Service
-public class DefaultResourceReader implements ResourceReader {
+public class DefaultResourceReader implements ResourceReader, Serializable{
 
     private final ResourcePatternResolver patternResolver;
 
