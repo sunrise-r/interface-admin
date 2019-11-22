@@ -17,6 +17,16 @@ public class ListProjectionDto implements Serializable {
     private boolean active;
 
     /**
+     * Sort field that can be used by default in projected list
+     */
+    private String defaultSortField;
+
+    /**
+     * Sort order that can be used by default in projected list
+     */
+    private String defaultSortOrder;
+
+    /**
      * Url ресурса для поиска данных
      */
     private String searchUrl;
@@ -112,6 +122,22 @@ public class ListProjectionDto implements Serializable {
 
     public void setActive(boolean active) {
         this.active = active;
+    }
+
+    public String getDefaultSortField() {
+        return defaultSortField;
+    }
+
+    public void setDefaultSortField(String defaultSortField) {
+        this.defaultSortField = defaultSortField;
+    }
+
+    public String getDefaultSortOrder() {
+        return defaultSortOrder;
+    }
+
+    public void setDefaultSortOrder(String defaultSortOrder) {
+        this.defaultSortOrder = defaultSortOrder;
     }
 
     public String getLabel() {

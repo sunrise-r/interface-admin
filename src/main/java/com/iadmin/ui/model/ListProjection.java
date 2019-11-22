@@ -20,9 +20,19 @@ public class ListProjection extends BaseProjection {
     private String infoUrl;
 
     /**
-     * Порядок сортировки
+     * Order of current projection in Presentation.listProjections list
      */
     private Integer order;
+
+    /**
+     * Sort order that can be used by default in projected list
+     */
+    private String defaultSortOrder;
+
+    /**
+     * Sort field that can be used by default in projected list
+     */
+    private String defaultSortField;
 
     /**
      * Доступные для представления действия
@@ -75,6 +85,22 @@ public class ListProjection extends BaseProjection {
 
     public void setOrder(Integer order) {
         this.order = order;
+    }
+
+    public String getDefaultSortField() {
+        return defaultSortField;
+    }
+
+    public void setDefaultSortField(String defaultSortField) {
+        this.defaultSortField = defaultSortField;
+    }
+
+    public String getDefaultSortOrder() {
+        return defaultSortOrder;
+    }
+
+    public void setDefaultSortOrder(String defaultSortOrder) {
+        this.defaultSortOrder = defaultSortOrder;
     }
 
     public String getSettingsGroupName() {

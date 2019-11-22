@@ -19,6 +19,12 @@ public class ProjectionListInheritanceStrategy implements InheritanceStrategy {
         if (childListProjection.getInfoUrl() == null) {
             childListProjection.setInfoUrl(parentListProjection.getInfoUrl());
         }
+        if (childListProjection.getDefaultSortField() == null) {
+            childListProjection.setDefaultSortField(parentListProjection.getDefaultSortField());
+        }
+        if (childListProjection.getDefaultSortOrder() == null) {
+            childListProjection.setDefaultSortOrder(parentListProjection.getDefaultSortOrder());
+        }
     }
 
     private <T> List<T> applyInheritance(List<T> parentList, List<T> childList) {

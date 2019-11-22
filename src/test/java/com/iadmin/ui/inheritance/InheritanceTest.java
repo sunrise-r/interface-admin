@@ -1,4 +1,4 @@
-package com.iadmin.ui.extend;
+package com.iadmin.ui.inheritance;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.iadmin.ui.exception.MergeException;
@@ -20,8 +20,8 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {ExtendingTest.Config.class})
-public class ExtendingTest {
+@ContextConfiguration(classes = {InheritanceTest.Config.class})
+public class InheritanceTest {
 
     @Autowired
     private DefaultRegistryService defaultRegistryService;
@@ -53,6 +53,8 @@ public class ExtendingTest {
         List<Action> actions = projection.getActions();
         assertEquals(5, actions.size());
         assertEquals("api/heroes/info", projection.getInfoUrl());
+        assertEquals("test", projection.getDefaultSortField());
+        assertEquals("desc", projection.getDefaultSortOrder());
         assertEquals("spawn", actions.get(0).getCode());
         assertEquals("move", actions.get(1).getCode());
         assertEquals("dragonFire", actions.get(2).getCode());
@@ -67,6 +69,8 @@ public class ExtendingTest {
         List<Action> actions = projection.getActions();
         assertEquals(4, actions.size());
         assertEquals("api/heroes/arcWarden/info", projection.getInfoUrl());
+        assertEquals("name", projection.getDefaultSortField());
+        assertEquals("asc", projection.getDefaultSortOrder());
         assertEquals("spawn", actions.get(0).getCode());
         assertEquals("move", actions.get(1).getCode());
         assertEquals("sphere", actions.get(2).getCode());
