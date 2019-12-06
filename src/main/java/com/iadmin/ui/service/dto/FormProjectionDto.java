@@ -16,9 +16,7 @@ public class FormProjectionDto implements Serializable {
 
     private HashMap<String,Object> properties;
 
-    public HashMap<String, Object> getProperties() {
-        return properties;
-    }
+    private String actionUrl;
 
     public String getCode() {
         return code;
@@ -52,7 +50,19 @@ public class FormProjectionDto implements Serializable {
         this.fields = fields;
     }
 
+    public HashMap<String, Object> getProperties() {
+        return properties;
+    }
+
     public void setProperties(HashMap<String, Object> properties) {
         this.properties = properties;
+    }
+
+    public String getActionUrl() {
+        return actionUrl;
+    }
+
+    public void setActionUrl(String actionUrl) {
+        this.actionUrl = actionUrl;
     }
 }

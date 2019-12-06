@@ -96,6 +96,7 @@ public class InheritanceTest {
         Presentation presentation = getPresentationByCode("arcWardenPresentation");
         FormProjection projection = getFormProjectionByCode(presentation, "arcWardenFromProjection");
         List<FormField> fields = projection.getFields();
+        assertEquals("/api/process/start", projection.getActionUrl());
         assertEquals(2,fields.size());
 
     }
