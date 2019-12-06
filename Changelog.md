@@ -1,6 +1,7 @@
 ### Last changes from 2019/12/06
 
-* Added inheritable String actionUrl field to form projection 
+* Added inheritable String actionUrl field to form projection
+* Added inheritable String formType field to form projection  
 
 ### Last changes from 2019/11/22 
 

@@ -18,6 +18,8 @@ public class FormProjectionDto implements Serializable {
 
     private String actionUrl;
 
+    private String formType;
+
     public String getCode() {
         return code;
     }
@@ -64,5 +66,13 @@ public class FormProjectionDto implements Serializable {
 
     public void setActionUrl(String actionUrl) {
         this.actionUrl = actionUrl;
+    }
+
+    public String getFormType() {
+        return formType;
+    }
+
+    public void setFormType(String formType) {
+        this.formType = formType;
     }
 }

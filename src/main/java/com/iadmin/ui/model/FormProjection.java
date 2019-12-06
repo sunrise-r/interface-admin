@@ -18,7 +18,15 @@ public class FormProjection extends BaseProjection {
 
     private String code;
 
+    /**
+     * URL, на который будет отправлена форма. Может быть в виде шаблона underscore
+     */
     private String actionUrl;
+
+    /**
+     * Тип формы для возможности фильтрации на frontend
+     */
+    private String formType;
 
     @Override
     public String getCode() {
@@ -68,5 +76,13 @@ public class FormProjection extends BaseProjection {
 
     public void setActionUrl(String actionUrl) {
         this.actionUrl = actionUrl;
+    }
+
+    public String getFormType() {
+        return formType;
+    }
+
+    public void setFormType(String formType) {
+        this.formType = formType;
     }
 }

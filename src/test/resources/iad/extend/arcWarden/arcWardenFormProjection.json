@@ -4,6 +4,7 @@
   "className": "ArcWarden",
   "title": "Title",
   "actionUrl": "/api/process/start",
+  "formType": "create",
   "extends": {
     "presentationCode": "heroPresentation",
     "projectionCode": "heroFormProjection"
