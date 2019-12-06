@@ -18,6 +18,8 @@ public class FormProjection extends BaseProjection {
 
     private String code;
 
+    private String actionUrl;
+
     @Override
     public String getCode() {
         return code;
@@ -58,5 +60,13 @@ public class FormProjection extends BaseProjection {
 
     public void setFields(List<FormField> fields) {
         this.fields = fields;
+    }
+
+    public String getActionUrl() {
+        return actionUrl;
+    }
+
+    public void setActionUrl(String actionUrl) {
+        this.actionUrl = actionUrl;
     }
 }

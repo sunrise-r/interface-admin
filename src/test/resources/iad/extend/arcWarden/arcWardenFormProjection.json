@@ -3,6 +3,7 @@
   "parentCode": "arcWardenPresentation",
   "className": "ArcWarden",
   "title": "Title",
+  "actionUrl": "/api/process/start",
   "extends": {
     "presentationCode": "heroPresentation",
     "projectionCode": "heroFormProjection"

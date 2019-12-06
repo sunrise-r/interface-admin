@@ -1,10 +1,14 @@
+### Last changes from 2019/12/06
+
+* Added inheritable String actionUrl field to form projection 
+
 ### Last changes from 2019/11/22 
 
-* Added defaultSortOrder and defaultSortField to list projections
+* Added inheritable defaultSortOrder and defaultSortField to list projections
 
 ### Last changes from 2019/11/15
 
-* serializable interace added to DTO 
+* serializable interface added to DTO 
 
 ### Last changes from 2019/09/16
 * Added "defaultValue" property to dataProjection and dataProjectionDTO
