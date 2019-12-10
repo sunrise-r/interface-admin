@@ -28,6 +28,12 @@ public class FormProjection extends BaseProjection {
      */
     private String formType;
 
+    /**
+     * Метод отправки формы: POST|GET|PUT|PATCH|DELETE;
+     * Указанное здесь значение повлияет на метод отправки формы из фронтенда
+     */
+    private String method;
+
     @Override
     public String getCode() {
         return code;
@@ -84,5 +90,13 @@ public class FormProjection extends BaseProjection {
 
     public void setFormType(String formType) {
         this.formType = formType;
+    }
+
+    public String getMethod() {
+        return method;
+    }
+
+    public void setMethod(String method) {
+        this.method = method;
     }
 }

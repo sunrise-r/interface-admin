@@ -20,6 +20,8 @@ public class FormProjectionDto implements Serializable {
 
     private String formType;
 
+    private String method;
+
     public String getCode() {
         return code;
     }
@@ -74,5 +76,13 @@ public class FormProjectionDto implements Serializable {
 
     public void setFormType(String formType) {
         this.formType = formType;
+    }
+
+    public String getMethod() {
+        return method;
+    }
+
+    public void setMethod(String method) {
+        this.method = method;
     }
 }

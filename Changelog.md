@@ -1,3 +1,7 @@
+### Last changes from 2019/12/10
+
+* Added "method" property for form projection
+
 ### Last changes from 2019/12/06
 
 * Added inheritable String actionUrl field to form projection
