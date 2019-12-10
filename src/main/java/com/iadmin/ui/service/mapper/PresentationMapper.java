@@ -34,6 +34,7 @@ public interface PresentationMapper {
 
     DataFieldDto toDto(DataField entity);
 
+    @Mapping(source = "method", target = "method", defaultValue = "POST")
     FormProjectionDto toDto(FormProjection entity);
 
     @Mapping(source = "fieldName", target = "name")

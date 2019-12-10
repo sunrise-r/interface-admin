@@ -17,6 +17,9 @@ public class ProjectionFormInheritanceStrategy implements InheritanceStrategy {
         FormProjection childFormProjection = (FormProjection) child;
         FormProjection parentFormProjection = (FormProjection) parent;
         childFormProjection.setFields(inherit(childFormProjection.getFields(), parentFormProjection.getFields()));
+        if (childFormProjection.getMethod() == null) {
+            childFormProjection.setMethod(parentFormProjection.getMethod());
+        }
         if (childFormProjection.getActionUrl() == null) {
             childFormProjection.setActionUrl(parentFormProjection.getActionUrl());
         }

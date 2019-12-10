@@ -3,6 +3,9 @@
   "parentCode": "heroPresentation",
   "className": "Hero",
   "title": "Title",
+  "actionUrl": "/api/process/start",
+  "formType": "create",
+  "method": "GET",
   "fields": [
     {
       "fieldType": "Hidden",
