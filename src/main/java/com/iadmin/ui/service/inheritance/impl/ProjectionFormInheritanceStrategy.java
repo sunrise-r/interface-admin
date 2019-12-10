@@ -5,6 +5,7 @@ import com.iadmin.ui.model.FormField;
 import com.iadmin.ui.model.FormProjection;
 import com.iadmin.ui.service.inheritance.InheritanceStrategy;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -25,6 +26,6 @@ public class ProjectionFormInheritanceStrategy implements InheritanceStrategy {
     }
 
     private List<FormField> inherit(List<FormField> child, List<FormField> parent) {
-        return Stream.concat(child.stream(), parent.stream()).collect(Collectors.toSet()).stream().collect(Collectors.toList());
+        return Stream.concat(child.stream(), parent.stream()).distinct().collect(Collectors.toList());
     }
 }
