@@ -1,6 +1,7 @@
 package com.iadmin.ui.service.inheritance.impl;
 
 import com.google.common.collect.Maps;
+import com.iadmin.ui.model.BaseData;
 import com.iadmin.ui.model.BaseProjection;
 import com.iadmin.ui.model.ParentReference;
 import com.iadmin.ui.service.inheritance.InheritanceStrategy;
@@ -33,12 +34,11 @@ public class DefaultInheritanceWorker implements InheritanceWorker {
     }
 
     private Set<BaseProjection> applyRecursive(int deepCount) {
-
         toApply.stream().filter(p -> inheritanceLvlMap.containsKey(p.getParentReference()))
-                .forEach(p -> calcAndPutToInheritanceMap(p));
+                .forEach(this::calcAndPutToInheritanceMap);
         toApply = toApply.stream().filter(ta -> !inheritanceLvlMap.keySet().contains(getProjectionReference(ta))).collect(Collectors.toSet());
         if (deepCount > MAX_COUNT) {
-            throw new RuntimeException("circular inheritance for:" + toApply.stream().map(x -> x.getCode()).collect(Collectors.joining(",")));
+            throw new RuntimeException("Circular inheritance for projections with codes: " + toApply.stream().map(BaseData::getCode).collect(Collectors.joining(",")));
         }
         if (toApply.size() > 0) {
             return applyRecursive(++deepCount);
