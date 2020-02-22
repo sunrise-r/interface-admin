@@ -1,15 +1,29 @@
 package com.iadmin.ui.service.dto;
 
-public class DataFieldDto {
+import java.io.Serializable;
 
-    private String label;
+public class DataFieldDto extends PropertiesFieldDto implements Serializable {
 
     private String code;
 
     /**
-     * Формат отображения данных
+     * Компонент отображения данных
      */
     private String formatter;
+
+    /**
+     * Dot separated path to any data source, that will be passed to form on frontend side
+     */
+    private String datasourcePath;
+
+    private String defaultValue;
+
+    /**
+     * Формат отображения данных
+     */
+    private String displayFormat;
+
+    private String label;
 
     public String getLabel() {
         return label;
@@ -27,8 +41,35 @@ public class DataFieldDto {
         this.code = code;
     }
 
-    public String getFormatter() { return formatter; }
+    public String getFormatter() {
+        return formatter;
+    }
 
-    public void setFormatter(String formatter) { this.formatter = formatter; }
+    public void setFormatter(String formatter) {
+        this.formatter = formatter;
+    }
 
+    public String getDisplayFormat() {
+        return displayFormat;
+    }
+
+    public void setDisplayFormat(String displayFormat) {
+        this.displayFormat = displayFormat;
+    }
+
+    public String getDatasourcePath() {
+        return datasourcePath;
+    }
+
+    public void setDatasourcePath(String datasourcePath) {
+        this.datasourcePath = datasourcePath;
+    }
+
+    public String getDefaultValue() {
+        return defaultValue;
+    }
+
+    public void setDefaultValue(String defaultValue) {
+        this.defaultValue = defaultValue;
+    }
 }

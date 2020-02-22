@@ -1,5 +1,7 @@
 package com.iadmin.ui.model;
 
+import com.google.common.collect.Lists;
+
 import java.util.List;
 
 /**
@@ -15,7 +17,12 @@ public class Registry extends BaseData {
     /**
      * Список доступных представлений сущности для интерфейса
      */
-    private List<Presentation> presentations;
+    private List<Presentation> presentations = Lists.newArrayList();
+
+    /**
+     * Набор ссылок на представления в других Реестрах интерфейсов.
+     */
+    private List<PresentationReference> presentationReferences = Lists.newArrayList();
 
     public RegistrySettings getSettings() {
         return settings;
@@ -31,5 +38,13 @@ public class Registry extends BaseData {
 
     public void setPresentations(List<Presentation> presentations) {
         this.presentations = presentations;
+    }
+
+    public List<PresentationReference> getPresentationReferences() {
+        return presentationReferences;
+    }
+
+    public void setPresentationReferences(List<PresentationReference> presentationReferences) {
+        this.presentationReferences = presentationReferences;
     }
 }

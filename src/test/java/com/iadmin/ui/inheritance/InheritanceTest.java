@@ -1,11 +1,8 @@
-package com.iadmin.ui.extend;
+package com.iadmin.ui.inheritance;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.iadmin.ui.exception.MergeException;
-import com.iadmin.ui.model.Action;
-import com.iadmin.ui.model.ListProjection;
-import com.iadmin.ui.model.Presentation;
-import com.iadmin.ui.model.Registry;
+import com.iadmin.ui.model.*;
 import com.iadmin.ui.service.impl.DefaultRegistryService;
 import org.junit.Before;
 import org.junit.Test;
@@ -23,8 +20,8 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {ExtendingTest.Config.class})
-public class ExtendingTest {
+@ContextConfiguration(classes = {InheritanceTest.Config.class})
+public class InheritanceTest {
 
     @Autowired
     private DefaultRegistryService defaultRegistryService;
@@ -55,6 +52,9 @@ public class ExtendingTest {
         ListProjection projection = getListProjectionByCode(presentation, "linaListProjection");
         List<Action> actions = projection.getActions();
         assertEquals(5, actions.size());
+        assertEquals("api/heroes/info", projection.getInfoUrl());
+        assertEquals("test", projection.getDefaultSortField());
+        assertEquals("desc", projection.getDefaultSortOrder());
         assertEquals("spawn", actions.get(0).getCode());
         assertEquals("move", actions.get(1).getCode());
         assertEquals("dragonFire", actions.get(2).getCode());
@@ -68,10 +68,47 @@ public class ExtendingTest {
         ListProjection projection = getListProjectionByCode(presentation, "arcWardenCopyListProjection");
         List<Action> actions = projection.getActions();
         assertEquals(4, actions.size());
+        assertEquals("api/heroes/arcWarden/info", projection.getInfoUrl());
+        assertEquals("name", projection.getDefaultSortField());
+        assertEquals("asc", projection.getDefaultSortOrder());
         assertEquals("spawn", actions.get(0).getCode());
         assertEquals("move", actions.get(1).getCode());
         assertEquals("sphere", actions.get(2).getCode());
         assertEquals("vanish", actions.get(3).getCode());
+    }
+
+    @Test
+    public void lastListProjectionTest() throws IOException {
+        Presentation presentation = getPresentationByCode("arcWardenPresentation");
+        ListProjection projection = getListProjectionByCode(presentation, "lastProjection");
+        List<Action> actions = projection.getActions();
+        List<ListField> fields = projection.getFields();
+        assertEquals(3,fields.size());
+        assertEquals(4, actions.size());
+        assertEquals("spawn", actions.get(0).getCode());
+        assertEquals("move", actions.get(1).getCode());
+        assertEquals("sphere", actions.get(2).getCode());
+        assertEquals("vanish", actions.get(3).getCode());
+    }
+
+    @Test
+    public void testFormInheritance() throws IOException {
+        Presentation presentation = getPresentationByCode("arcWardenPresentation");
+        FormProjection projection = getFormProjectionByCode(presentation, "arcWardenFromProjection");
+        List<FormField> fields = projection.getFields();
+        assertEquals("/api/process/start", projection.getActionUrl());
+        assertEquals("create", projection.getFormType());
+        assertEquals("GET", projection.getMethod());
+        assertEquals(2,fields.size());
+
+    }
+
+    private FormProjection getFormProjectionByCode(Presentation presentation, String code) throws IOException {
+        return presentation.getFormProjections()
+                .stream()
+                .filter(registry -> registry.getCode().equals(code))
+                .findFirst()
+                .orElseThrow(IOException::new);
     }
 
 

@@ -6,11 +6,6 @@ package com.iadmin.ui.model;
 public class ListField extends BaseField {
 
     /**
-     * Формат отображения данных
-     */
-    private String formatter;
-
-    /**
      * Доступна сортировка или нет
      */
     private boolean sorting;
@@ -42,14 +37,6 @@ public class ListField extends BaseField {
 
     public void setTranslationCode(String translationCode) {
         this.translationCode = translationCode;
-    }
-
-    public String getFormatter() {
-        return formatter;
-    }
-
-    public void setFormatter(String formatter) {
-        this.formatter = formatter;
     }
 
     public boolean isSorting() {

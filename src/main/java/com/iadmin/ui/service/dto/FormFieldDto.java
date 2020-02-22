@@ -2,10 +2,51 @@ package com.iadmin.ui.service.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
-import java.util.HashMap;
+import java.io.Serializable;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class FormFieldDto {
+public class FormFieldDto extends DataFieldDto implements Serializable {
+
+    /**
+     * Form fields may be allocated in different <td></td> or <div class="col-{{colums.length / n}}"></div> columns
+     */
+    private Integer column;
+
+    /**
+     * Тип поля: Text, String, ZonedDateTime etc.
+     */
+    private String fieldInputType;
+
+    /**
+     * Make no sense. Marked as hidden input should be hidden. But we use fieldInputType: Hidden on frontend side
+     */
+    private boolean hidden;
+
+    /**
+     * Add Input mask for String inputs
+     */
+    private String inputMask;
+
+    /**
+     * Closely related to "partner" project. "View" part of grid-like lookups
+     */
+    private String lookupViewProjectionCode;
+
+    /**
+     * Closely related to "partner" project. "Source" part of grid-like lookups
+     */
+    private String lookupSourceProjectionCode;
+
+    private String name;
+
+    private String presentationCode;
+
+    /**
+     * Allows frontend to include external form projections as nested form group or as additional fields kit for current form
+     */
+    private String referenceProjectionCode;
+
+    private String type;
 
     /**
      * Типы валидации которые дожны быть применены для поля при редактирование
@@ -17,31 +58,16 @@ public class FormFieldDto {
      */
     private String valueField;
 
-    private String presentationCode;
+    /**
+     * Flag to configure if the label of current form field should be translated
+     * on frontend side or it should be displayed as is
+     */
+    private boolean translate;
 
-    private String type;
-
-    private String name;
-
-    private String label;
-
-    private String defaultValue;
-
-    private String fieldInputType;
-
-    private Integer column;
-
-    private boolean hidden;
-
-    private String lookupViewProjectionCode;
-
-    private String lookupSourceProjectionCode;
-
-    private String referenceProjectionCode;
-
-    private HashMap<String,String> properties;
-
-    private String inputMask;
+    /**
+     * Isn't it the same as opposite for hidden flag?  (hidden = false)
+     */
+    private boolean visible;
 
     public String getValueField() {
         return valueField;
@@ -57,14 +83,6 @@ public class FormFieldDto {
 
     public void setInputMask(String inputMask) {
         this.inputMask = inputMask;
-    }
-
-    public HashMap<String, String> getProperties() {
-        return properties;
-    }
-
-    public void setProperties(HashMap<String, String> properties) {
-        this.properties = properties;
     }
 
     public String getLookupViewProjectionCode() {
@@ -99,14 +117,6 @@ public class FormFieldDto {
         this.presentationCode = presentationCode;
     }
 
-    public String getDefaultValue() {
-        return defaultValue;
-    }
-
-    public void setDefaultValue(String defaultValue) {
-        this.defaultValue = defaultValue;
-    }
-
     public String getFieldInputType() {
         return fieldInputType;
     }
@@ -131,14 +141,6 @@ public class FormFieldDto {
         this.name = name;
     }
 
-    public String getLabel() {
-        return label;
-    }
-
-    public void setLabel(String label) {
-        this.label = label;
-    }
-
     public ValidationDto getValidationTypes() {
         return validationTypes;
     }
@@ -155,7 +157,27 @@ public class FormFieldDto {
         this.column = column;
     }
 
-    public String getReferenceProjectionCode() { return referenceProjectionCode; }
+    public String getReferenceProjectionCode() {
+        return referenceProjectionCode;
+    }
 
-    public void setReferenceProjectionCode(String referenceProjectionCode) { this.referenceProjectionCode = referenceProjectionCode; }
+    public void setReferenceProjectionCode(String referenceProjectionCode) {
+        this.referenceProjectionCode = referenceProjectionCode;
+    }
+
+    public boolean isTranslate() {
+        return translate;
+    }
+
+    public void setTranslate(boolean translate) {
+        this.translate = translate;
+    }
+
+    public boolean isVisible() {
+        return visible;
+    }
+
+    public void setVisible(boolean visible) {
+        this.visible = visible;
+    }
 }

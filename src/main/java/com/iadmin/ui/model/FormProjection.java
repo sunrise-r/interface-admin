@@ -18,6 +18,22 @@ public class FormProjection extends BaseProjection {
 
     private String code;
 
+    /**
+     * URL, на который будет отправлена форма. Может быть в виде шаблона underscore
+     */
+    private String actionUrl;
+
+    /**
+     * Тип формы для возможности фильтрации на frontend
+     */
+    private String formType;
+
+    /**
+     * Метод отправки формы: POST|GET|PUT|PATCH|DELETE;
+     * Указанное здесь значение повлияет на метод отправки формы из фронтенда
+     */
+    private String method;
+
     @Override
     public String getCode() {
         return code;
@@ -58,5 +74,29 @@ public class FormProjection extends BaseProjection {
 
     public void setFields(List<FormField> fields) {
         this.fields = fields;
+    }
+
+    public String getActionUrl() {
+        return actionUrl;
+    }
+
+    public void setActionUrl(String actionUrl) {
+        this.actionUrl = actionUrl;
+    }
+
+    public String getFormType() {
+        return formType;
+    }
+
+    public void setFormType(String formType) {
+        this.formType = formType;
+    }
+
+    public String getMethod() {
+        return method;
+    }
+
+    public void setMethod(String method) {
+        this.method = method;
     }
 }

@@ -1,12 +1,33 @@
 {
-    "parentCode": "heroPresentation",
-    "code": "heroListProjection",
-    "actions": [
-        {
-            "code": "spawn"
-        },
-        {
-            "code": "move"
-        }
-    ]
+  "parentCode": "heroPresentation",
+  "code": "heroListProjection",
+  "infoUrl": "api/heroes/info",
+  "defaultSortOrder": "desc",
+  "defaultSortField": "test",
+  "actions": [
+    {
+      "code": "spawn"
+    },
+    {
+      "code": "move"
+    }
+  ],
+  "fields": [
+    {
+      "label": "Дата создания",
+      "code": "test",
+      "translationCode": "code",
+      "sorting": true,
+      "searching": true,
+      "displayFormat": "ZonedDateTime"
+    },
+    {
+      "label": "Наименование",
+      "code": "name",
+      "translationCode": "name",
+      "sorting": true,
+      "searching": true,
+      "displayFormat": "string"
+    }
+  ]
 }

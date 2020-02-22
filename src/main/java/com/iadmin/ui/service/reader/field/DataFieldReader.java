@@ -1,7 +1,6 @@
 package com.iadmin.ui.service.reader.field;
 
 import com.iadmin.ui.model.DataField;
-import com.iadmin.ui.model.FormField;
 import com.iadmin.ui.service.ReaderServiceData;
 import com.iadmin.ui.service.reader.base.SingleReader;
 

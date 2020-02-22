@@ -1,7 +1,6 @@
 package com.iadmin.ui.service.reader.projection;
 
 import com.iadmin.ui.model.DataProjection;
-import com.iadmin.ui.model.FormProjection;
 import com.iadmin.ui.model.Presentation;
 import com.iadmin.ui.service.ReaderServiceData;
 import com.iadmin.ui.service.reader.base.OwnedListReader;

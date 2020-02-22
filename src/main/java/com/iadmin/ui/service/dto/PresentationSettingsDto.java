@@ -1,4 +1,6 @@
 package com.iadmin.ui.service.dto;
 
-public class PresentationSettingsDto {
+import java.io.Serializable;
+
+public class PresentationSettingsDto implements Serializable {
 }

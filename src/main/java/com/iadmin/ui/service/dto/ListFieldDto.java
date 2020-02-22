@@ -1,8 +1,8 @@
 package com.iadmin.ui.service.dto;
 
-import java.util.HashMap;
+import java.io.Serializable;
 
-public class ListFieldDto {
+public class ListFieldDto extends PropertiesFieldDto implements Serializable {
 
     /**
      * Код поля
@@ -20,6 +20,11 @@ public class ListFieldDto {
      * Формат отображения данных
      */
     private String formatter;
+
+    /**
+     * Формат отображения данных
+     */
+    private String displayFormat;
 
     /**
      * Показывать колонку?
@@ -42,11 +47,14 @@ public class ListFieldDto {
     private String style;
 
     /**
+     * Возможна ли сортировка?
+     */
+    private Boolean sorting;
+
+    /**
      * Определяет позицию колонки в таблице
      */
     private String position;
-
-    private HashMap<String,String> properties;
 
     public String getField() {
         return field;
@@ -112,11 +120,19 @@ public class ListFieldDto {
         this.position = position;
     }
 
-    public HashMap<String, String> getProperties() {
-        return properties;
+    public String getDisplayFormat() {
+        return displayFormat;
     }
 
-    public void setProperties(HashMap<String, String> properties) {
-        this.properties = properties;
+    public void setDisplayFormat(String displayFormat) {
+        this.displayFormat = displayFormat;
+    }
+
+    public Boolean getSorting() {
+        return sorting;
+    }
+
+    public void setSorting(Boolean sorting) {
+        this.sorting = sorting;
     }
 }

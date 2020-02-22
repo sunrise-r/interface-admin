@@ -1,11 +1,13 @@
 {
     "parentCode":"arcWardenPresentation",
     "code": "arcWardenListProjection",
+    "infoUrl": "api/heroes/arcWarden/info",
+    "defaultSortOrder": "asc",
+    "defaultSortField": "name",
     "extends": {
         "presentationCode": "heroPresentation",
         "projectionCode": "heroListProjection"
     },
-
     "actions": [
         {
             "code": "sphere"

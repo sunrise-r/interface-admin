@@ -1,9 +1,10 @@
 package com.iadmin.ui.service.dto;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 
-public class FormProjectionDto {
+public class FormProjectionDto implements Serializable {
 
     private List<FormFieldDto> fields;
 
@@ -13,11 +14,13 @@ public class FormProjectionDto {
 
     private String code;
 
-    private HashMap<String,String> properties;
+    private HashMap<String,Object> properties;
 
-    public HashMap<String, String> getProperties() {
-        return properties;
-    }
+    private String actionUrl;
+
+    private String formType;
+
+    private String method;
 
     public String getCode() {
         return code;
@@ -51,7 +54,35 @@ public class FormProjectionDto {
         this.fields = fields;
     }
 
-    public void setProperties(HashMap<String, String> properties) {
+    public HashMap<String, Object> getProperties() {
+        return properties;
+    }
+
+    public void setProperties(HashMap<String, Object> properties) {
         this.properties = properties;
+    }
+
+    public String getActionUrl() {
+        return actionUrl;
+    }
+
+    public void setActionUrl(String actionUrl) {
+        this.actionUrl = actionUrl;
+    }
+
+    public String getFormType() {
+        return formType;
+    }
+
+    public void setFormType(String formType) {
+        this.formType = formType;
+    }
+
+    public String getMethod() {
+        return method;
+    }
+
+    public void setMethod(String method) {
+        this.method = method;
     }
 }

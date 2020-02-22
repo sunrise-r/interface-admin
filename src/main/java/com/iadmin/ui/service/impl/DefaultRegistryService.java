@@ -3,6 +3,7 @@ package com.iadmin.ui.service.impl;
 import com.iadmin.ui.exception.MergeException;
 import com.iadmin.ui.model.*;
 import com.iadmin.ui.service.RegistryService;
+import com.iadmin.ui.service.ResourceReader;
 import com.iadmin.ui.service.ResourceService;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
@@ -21,8 +22,11 @@ public class DefaultRegistryService implements RegistryService {
 
     private final ResourceService defaultResourceService;
 
-    public DefaultRegistryService(ResourceService defaultResourceService) {
+    private final ResourceReader resourceLoader;
+
+    public DefaultRegistryService(ResourceService defaultResourceService, ResourceReader resourceLoader) {
         this.defaultResourceService = defaultResourceService;
+        this.resourceLoader = resourceLoader;
     }
 
     @Override
@@ -45,7 +49,7 @@ public class DefaultRegistryService implements RegistryService {
      */
     @Override
     public List<Registry> loadRegistries() throws IOException, MergeException {
-        List<Resource> resources = defaultResourceService.getResources(defaultResourceService.getScanPath());
+        List<Resource> resources = resourceLoader.getResources(defaultResourceService.getScanPath());
         return defaultResourceService.read(resources);
     }
 

@@ -1,8 +1,10 @@
 package com.iadmin.ui.service.dto;
 
+import java.io.Serializable;
+import java.util.HashMap;
 import java.util.List;
 
-public class ListProjectionDto {
+public class ListProjectionDto implements Serializable {
 
     /**
      * Код
@@ -15,9 +17,24 @@ public class ListProjectionDto {
     private boolean active;
 
     /**
+     * Sort field that can be used by default in projected list
+     */
+    private String defaultSortField;
+
+    /**
+     * Sort order that can be used by default in projected list
+     */
+    private String defaultSortOrder;
+
+    /**
      * Url ресурса для поиска данных
      */
     private String searchUrl;
+
+    /**
+     * Url to retrieve information for particular record in list
+     */
+    private String infoUrl;
 
     /**
      * Доступные для представления действия
@@ -48,6 +65,11 @@ public class ListProjectionDto {
      * Список фильтров
      */
     private List<ProjectionFilterDto> filters;
+
+    /**
+     * Дополнительные настройки проекции
+     */
+    private HashMap<String,Object> properties;
 
     /**
      * Загружать ли актуальную информацию при клике на запись в таблице
@@ -102,6 +124,22 @@ public class ListProjectionDto {
         this.active = active;
     }
 
+    public String getDefaultSortField() {
+        return defaultSortField;
+    }
+
+    public void setDefaultSortField(String defaultSortField) {
+        this.defaultSortField = defaultSortField;
+    }
+
+    public String getDefaultSortOrder() {
+        return defaultSortOrder;
+    }
+
+    public void setDefaultSortOrder(String defaultSortOrder) {
+        this.defaultSortOrder = defaultSortOrder;
+    }
+
     public String getLabel() {
         return label;
     }
@@ -132,5 +170,21 @@ public class ListProjectionDto {
 
     public void setLoadActualInfo(Boolean loadActualInfo) {
         this.loadActualInfo = loadActualInfo;
+    }
+
+    public HashMap<String, Object> getProperties() {
+        return properties;
+    }
+
+    public void setProperties(HashMap<String, Object> properties) {
+        this.properties = properties;
+    }
+
+    public String getInfoUrl() {
+        return infoUrl;
+    }
+
+    public void setInfoUrl(String infoUrl) {
+        this.infoUrl = infoUrl;
     }
 }

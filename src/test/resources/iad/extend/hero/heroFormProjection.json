@@ -1,0 +1,20 @@
+{
+  "code": "heroFormProjection",
+  "parentCode": "heroPresentation",
+  "className": "Hero",
+  "title": "Title",
+  "actionUrl": "/api/process/start",
+  "formType": "create",
+  "method": "GET",
+  "fields": [
+    {
+      "fieldType": "Hidden",
+      "fieldName": "id",
+      "fieldLength": "",
+      "required": false,
+      "fieldLabel": "",
+      "hidden": false,
+      "defaultValue": null
+    }
+  ]
+}

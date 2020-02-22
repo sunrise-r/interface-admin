@@ -1,8 +1,6 @@
 package com.iadmin.ui.model;
 
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.util.List;
 
 /**
@@ -17,9 +15,24 @@ public class ListProjection extends BaseProjection {
     private String searchUrl;
 
     /**
-     * Порядок сортировки
+     * Url to retrieve information for particular record in list
      */
-    private int order;
+    private String infoUrl;
+
+    /**
+     * Order of current projection in Presentation.listProjections list
+     */
+    private Integer order;
+
+    /**
+     * Sort order that can be used by default in projected list
+     */
+    private String defaultSortOrder;
+
+    /**
+     * Sort field that can be used by default in projected list
+     */
+    private String defaultSortField;
 
     /**
      * Доступные для представления действия
@@ -56,11 +69,7 @@ public class ListProjection extends BaseProjection {
      */
     private Boolean loadActualInfo;
 
-    /**
-     * Ссылка на родительскую проекцию
-     */
-    @JsonProperty("extends")
-    private ParentReference parentReference;
+
 
     public List<ProjectionFilter> getFilters() {
         return filters;
@@ -70,20 +79,28 @@ public class ListProjection extends BaseProjection {
         this.filters = filters;
     }
 
-    public int getOrder() {
+    public Integer getOrder() {
         return order;
     }
 
-    public void setOrder(int order) {
+    public void setOrder(Integer order) {
         this.order = order;
     }
 
-    public ParentReference getParentReference() {
-        return parentReference;
+    public String getDefaultSortField() {
+        return defaultSortField;
     }
 
-    public void setParentReference(ParentReference parentReference) {
-        this.parentReference = parentReference;
+    public void setDefaultSortField(String defaultSortField) {
+        this.defaultSortField = defaultSortField;
+    }
+
+    public String getDefaultSortOrder() {
+        return defaultSortOrder;
+    }
+
+    public void setDefaultSortOrder(String defaultSortOrder) {
+        this.defaultSortOrder = defaultSortOrder;
     }
 
     public String getSettingsGroupName() {
@@ -140,5 +157,13 @@ public class ListProjection extends BaseProjection {
 
     public void setLoadActualInfo(Boolean loadActualInfo) {
         this.loadActualInfo = loadActualInfo;
+    }
+
+    public String getInfoUrl() {
+        return infoUrl;
+    }
+
+    public void setInfoUrl(String infoUrl) {
+        this.infoUrl = infoUrl;
     }
 }
