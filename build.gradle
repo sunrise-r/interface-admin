@@ -9,6 +9,8 @@ version '0.0.2-SNAPSHOT'
 
 sourceCompatibility =11
 
+
+
 repositories {
     mavenLocal()
     mavenCentral()
@@ -17,9 +19,22 @@ repositories {
 apply plugin: 'io.spring.dependency-management'
 apply plugin: 'java-library'
 apply plugin: 'net.ltgt.apt-idea'
+apply plugin: 'maven-publish'
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+}
 
 jar{
     enabled = true
+    into("META-INF/maven/$project.group/$project.name") {
+        from { generatePomFileForMavenJavaPublication }
+        rename ".*", "pom.xml"
+    }
     manifest {
         attributes('Implementation-Title': project.name,
                 'Implementation-Version': version)
